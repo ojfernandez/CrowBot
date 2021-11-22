@@ -1,11 +1,10 @@
 # CrowBot - a Discord bot in D++
 
 A Discord bot from [brainboxdotcc's template](https://github.com/brainboxdotcc/templatebot) for a simple [D++](https://dpp.dev) bot.
-Discord Bot written in D++ in development for University of Washington Bothell students. Made by UWBOThell. 
+Discord Bot written in D++ in development for University of Washington Bothell students. Made by UWBOThell.
 
 ## Compilation
 
-    mkdir build
     cd build
     cmake ..
     make -j
