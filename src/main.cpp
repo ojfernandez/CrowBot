@@ -34,36 +34,22 @@ int main(int argc, char const *argv[]) {
       if (command == "!ping") {
          bot.message_create(dpp::message(event.msg->channel_id, "Pong!"));
       }
-   });
-   
-   // /campus
-   // Sends an image of the campus via campus webcam
-   bot.on_interaction_create([&bot](const dpp::interaction_create_t & event) {
-      if (event.command.type == dpp::it_application_command) {
-         dpp::command_interaction cmd_data = get<dpp::command_interaction>(event.command.data);
-         /* Check which command they ran */
-         if (cmd_data.name == "campus") {
+      
+      // !campus
+      // Sends an embedded image of the UWB campus grounds
+      if (command == "!campus") {
+         dpp::embed campusEmbed = dpp::embed().
+            set_color(0x4b2e83).
+            set_title("UWB Campus Live Image");
+            set_url("https://www.uwb.edu/about/webcam");
+            set_author("University of Washington Bothell", "https://www.uwb.edu/").
+            set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
+            set_image("http://69.91.192.220/netcam.jpg")
+            set_timestamp(time(0));
             
-            const string webcam = "http://69.91.192.220/netcam.jpg";
-            /* Reply to the command. There is an overloaded version of this
-            * call that accepts a dpp::message so you can send embeds.
-            */
-            event.reply(dpp::ir_channel_message_with_source, fmt::format(webcam));
-         }
+         /* reply with the created embed */
+         bot.message_create(dpp::message(event.msg->channel_id, embed).set_reference(event.msg->id));
       }
-   });
-
-   bot.on_ready([&bot](const dpp::ready_t & event) {
-
-      dpp::slashcommand newcommand;
-      /* Create a new global command on ready event */
-      newcommand.set_name("campus")
-         .set_description("Sends an image of the UW Bothell campus in real time.")
-         .set_application_id(bot.me.id)
-      );
-
-      /* Register the command */
-      bot.global_command_create(newcommand);
    });
 
    /* Start bot */
