@@ -1,7 +1,5 @@
-build/
 out/
 .vs/
 .vscode/
 .idea/
 tmp/
-config.json
