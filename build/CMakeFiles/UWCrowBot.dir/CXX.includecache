@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/templatebot/templatebot.h
+dpp/dpp.h
+-
+dpp/fmt/format.h
+-
+dpp/nlohmann/json.hpp
+-
+dpp/discordevents.h
+-
+dpp/message.h
+-
+
+/root/CrowBot/src/main.cpp
+dpp/dpp.h
+-
+dpp/nlohmann/json.hpp
+-
+templatebot/templatebot.h
+-
+iomanip
+-
+sstream
+-
+
