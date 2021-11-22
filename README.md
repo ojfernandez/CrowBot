@@ -1,6 +1,7 @@
-# D++ CMake Template (templatebot)
+# CrowBot - a Discord bot in D++
 
-CMake template for a simple [D++](https://dpp.dev) bot. This template assumes that D++ is already installed.
+A Discord bot from [brainboxdotcc's template](https://github.com/brainboxdotcc/templatebot) for a simple [D++](https://dpp.dev) bot.
+Discord Bot written in D++ in development for University of Washington Bothell students. Made by UWBOThell. 
 
 ## Compilation
 
@@ -8,18 +9,6 @@ CMake template for a simple [D++](https://dpp.dev) bot. This template assumes th
     cd build
     cmake ..
     make -j
-
-If DPP is installed in a different location you can specify the root directory to look in while running cmake 
-
-    cmake .. -DDPP_ROOT_DIR=<your-path>
-
-## Running the template bot
-
-Create a config.json in the directory above the build directory:
-
-```json
-{ "token": "your bot token here" }
-```
 
 Start the bot:
 
@@ -29,7 +18,3 @@ Start the bot:
 ## Extending the bot
 
 You can add as many header files and .cpp files into the src and include folders as you wish. All .cpp files in the src directory will be linked together into the bot's executable.
-
-## Renaming the bot
-
-To rename the bot, search and replace "templatebot" in the `CMakeLists.txt` with your new bots name and then rename the templatebot folder in include. Rerun `cmake ..` from the `build` directory and rebuild.
