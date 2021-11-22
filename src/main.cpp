@@ -43,7 +43,7 @@ int main(int argc, char const *argv[]) {
 	    set_url("https://www.uwb.edu/about/webcam").
 	    set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
 	    set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
-	    set_image("http://69.91.192.220/netcam.jpg").
+	    set_image("http://69.91.192.220/netcam.jpg/").
 	    set_timestamp(time(0));
 
       	 /* reply with the created embed */
