@@ -34,6 +34,10 @@ int main(int argc, char const *argv[])
 	{
 		bot.message_create(dpp::message(event.msg->channel_id, "Hello to you too."));
 	}
+	else if (command == "!ping")
+	{
+		bot.message_create(dpp::message(event.msg->channel_id, "Pong!"));
+	}
 
     });
 
