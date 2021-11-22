@@ -40,15 +40,25 @@ int main(int argc, char const *argv[]) {
       if (command == "!campus") {
          dpp::embed campusEmbed = dpp::embed().
             set_color(0x4b2e83).
-            set_title("UWB Campus Live Image");
-            set_url("https://www.uwb.edu/about/webcam");
-            set_author("University of Washington Bothell", "https://www.uwb.edu/").
+            set_title("UWB Campus Live Image").
+            set_url("https://www.uwb.edu/about/webcam").
+            set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
             set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
-            set_image("http://69.91.192.220/netcam.jpg")
+            set_image("http://69.91.192.220/netcam.jpg").
             set_timestamp(time(0));
             
          /* reply with the created embed */
-         bot.message_create(dpp::message(event.msg->channel_id, embed).set_reference(event.msg->id));
+         bot.message_create(dpp::message(event.msg->channel_id, campusEmbed).set_reference(event.msg->id));
+
+	 /* reset the embedded image */
+	 dpp::embed campusEmbed = dpp::embed().
+	     set_color(0x4b2e83).
+	     set_title("UWB Campus Live Image").
+	     set_url("https://www.uwb.edu/about/webcam").
+	     set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
+	     set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
+	     set_image("http://uwb.edu/").
+	     set_timestamp(time(0));
       }
    });
 
