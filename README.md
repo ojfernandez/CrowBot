@@ -12,7 +12,7 @@ Discord Bot written in D++ in development for University of Washington Bothell s
 Start the bot:
 
     cd build
-    ./templatebot
+    ./UWCrowBot
 
 ## Extending the bot
 
