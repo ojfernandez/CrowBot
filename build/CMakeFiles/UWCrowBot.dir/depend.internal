@@ -3,4 +3,4 @@
 
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o
  ../include/templatebot/templatebot.h
- /root/CrowBot/src/main.cpp
+ /home/pi/CrowBot/src/main.cpp

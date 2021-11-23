@@ -44,10 +44,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /root/CrowBot
+CMAKE_SOURCE_DIR = /home/pi/CrowBot
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /root/CrowBot/build
+CMAKE_BINARY_DIR = /home/pi/CrowBot/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ clean: CMakeFiles/UWCrowBot.dir/clean
 CMakeFiles/UWCrowBot.dir/all:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/depend
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=1,2 "Built target UWCrowBot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/CrowBot/build/CMakeFiles --progress-num=1,2 "Built target UWCrowBot"
 .PHONY : CMakeFiles/UWCrowBot.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/UWCrowBot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/CrowBot/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/CrowBot/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/UWCrowBot.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/CrowBot/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/CrowBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/UWCrowBot.dir/rule
 
 # Convenience name for target.

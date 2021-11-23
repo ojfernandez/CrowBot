@@ -1,1 +1,1 @@
-/usr/bin/c++     CMakeFiles/UWCrowBot.dir/src/main.cpp.o  -o UWCrowBot  -ldl -pthread /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/libdpp.so 
+/usr/bin/c++     CMakeFiles/UWCrowBot.dir/src/main.cpp.o  -o UWCrowBot  -ldl -pthread /usr/lib/arm-linux-gnueabihf/libcrypto.so /usr/lib/arm-linux-gnueabihf/libssl.so /usr/lib/libdpp.so 

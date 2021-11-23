@@ -18,7 +18,7 @@ dpp/discordevents.h
 dpp/message.h
 -
 
-/root/CrowBot/src/main.cpp
+/home/pi/CrowBot/src/main.cpp
 dpp/dpp.h
 -
 dpp/nlohmann/json.hpp
