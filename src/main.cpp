@@ -37,13 +37,19 @@ int main(int argc, char const *argv[]) {
       // !campus
       // Sends an embedded image of the UWB campus grounds
       if (command == "!campus") {
+
+      string webcam;
+      int t = time(0);
+      webcam = "http://69.91.192.220/nph-jpeg.cgi?" + to_string(t);
+
          dpp::embed campusEmbed = dpp::embed().
 	    set_color(0x4b2e83).
 	    set_title("UWB Campus Live Image").
 	    set_url("https://www.uwb.edu/about/webcam").
 	    set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
 	    set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
-	    set_image("http://69.91.192.220/netcam.jpg/").
+	    set_image(webcam).
+	    set_footer(dpp::embed_footer().set_text(webcam)).
 	    set_timestamp(time(0));
 
       	 /* reply with the created embed */
