@@ -18,7 +18,7 @@ dpp/discordevents.h
 dpp/message.h
 -
 
-/home/pi/CrowBot/src/main.cpp
+/root/CrowBot/src/main.cpp
 dpp/dpp.h
 -
 dpp/nlohmann/json.hpp
@@ -28,5 +28,9 @@ templatebot/templatebot.h
 iomanip
 -
 sstream
+-
+iostream
+-
+vector
 -
 

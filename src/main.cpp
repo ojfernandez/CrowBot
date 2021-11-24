@@ -3,6 +3,8 @@
 #include <templatebot/templatebot.h>
 #include <iomanip>
 #include <sstream>
+#include <iostream>
+#include <vector>
 
 using json = nlohmann::json;
 using namespace std;
@@ -11,21 +13,42 @@ int main(int argc, char const *argv[]) {
    json configdocument;
    ifstream configfile("../config.json");
    configfile >> configdocument;
-   ifstream infile("songs.txt");
-   bool songs = true;
-   bool crowFacts = true;
-   bool clubs = true;
+
+   // Setup databases
+   bool songDB = true;
+   bool crowDB = true;
+   bool clubDB = true;
+
+   vector<string*>songVect;
+   vector<string>crowVect;
+   vector<string>clubVect;
+
+   ifstream infile("songs1.txt");
    if (!infile) {
-   	song = false;
-	cout << "Can't read song file" << endl;
+   	songDB = false;
+	cout << "Can't read songs1.txt" << endl;
    }
+   if (songDB == true) {
+	   int i = 0;
+	   string arr[3];
+
+	   infile >> arr[i];
+	   i++;
+	   while (!infile.eof()) {
+		   if (i == 2) {
+			songVect.push_back(arr);
+			i = 0;
+		   }
+		   infile >> arr[i];
+		   i++;
+	   }
+   }
+
+
+
 
    /* Setup the bot */
    dpp::cluster bot(configdocument["token"]);
-
-	//create vector of song
-	vector<string[3]> songSuggestions;
-	
 
    /* Log event */
    bot.on_log([&bot](const dpp::log_t &event) {
@@ -39,7 +62,20 @@ int main(int argc, char const *argv[]) {
       stringstream ss(event.msg->content);
       string command;
       ss >> command;
-      
+
+      // !help
+      // A command which shows the different avaiable commands for the bot
+      if (command == "!help") {
+	vector<string> helpCom = {"**!ping** - Returns pong!", "**!inspire** - Returns an inspirational quote", "**!crowFact** - Returns a fact about crows", "**!campus** - Returns an embedded live image of the UWB campus"};
+
+	string helpMsg = "";
+	for (int i = 0; i < helpCom.size(); i++) {
+		helpMsg += (helpCom[i] + "\n");
+	}
+
+	bot.message_create(dpp::message(event.msg->channel_id, helpMsg));
+      }
+
       // !ping
       // A test command that returns a single message
       if (command == "!ping") {
@@ -57,14 +93,19 @@ int main(int argc, char const *argv[]) {
          vector<string> crowFacts = {"Young crows leave the nest after four weeks.", "Crows have around 250 different calls.", 
             "Crow eggs hatch after 20-40 days.", "Crows are COOL", "Crows are part of the family Corvidae.", "Crows are omnivores."};
          int max; 
-         max = 5;
+         max = crowFacts.size();
          srand(time(0));
          bot.message_create(dpp::message(event.msg->channel_id, crowFacts.at(rand()%max)));
       }
 
-	if (command == ("!suggestSongs") {
+	/*
+	if (command == "!suggestSongs") {
+		if (songDB == true) {
+
+		}
 	}
-      
+      */
+
       // !campus
       // Sends an embedded image of the UWB campus grounds
       if (command == "!campus") {
