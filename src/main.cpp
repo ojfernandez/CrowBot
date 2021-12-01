@@ -9,43 +9,34 @@
 using json = nlohmann::json;
 using namespace std;
 
+/* Setup databases */
+json commDB; // Command list for !help
+json songDB; // Song list for !song
+json crowDB; // Crow facts for !crowFact
+//json clubDB; // Club list for !clubs
+
+/* Random variables and weights */
+int crowRand = -1;
+int crowLast = -1;
+int songRand = -1;
+int songLast = -1;
+
 int main(int argc, char const *argv[]) {
-   json configdocument;
-   ifstream configfile("../config.json");
-   configfile >> configdocument;
+	srand(time(0));
 
-   // Setup databases
-   bool songDB = true;
-   bool crowDB = true;
-   bool clubDB = true;
+	json configdocument;
+	ifstream configfile("../config.json");
+	configfile >> configdocument;
 
-   vector<string*>songVect;
-   vector<string>crowVect;
-   vector<string>clubVect;
-
-   ifstream infile("songs1.txt");
-   if (!infile) {
-   	songDB = false;
-	cout << "Can't read songs1.txt" << endl;
-   }
-   if (songDB == true) {
-	   int i = 0;
-	   string arr[3];
-
-	   infile >> arr[i];
-	   i++;
-	   while (!infile.eof()) {
-		   if (i == 2) {
-			songVect.push_back(arr);
-			i = 0;
-		   }
-		   infile >> arr[i];
-		   i++;
-	   }
-   }
-
-
-
+	/* Reading in .json files from dataBases folder */
+	ifstream db1("../dataBases/comms.json");
+	db1 >> commDB;
+	ifstream db2("../dataBases/songs.json");
+	db2 >> songDB;
+	ifstream db3("../dataBases/crows.json");
+	db3 >> crowDB;
+	//ifstream db4("../dataBases/clubs.json");
+	//db4 >> clubDB;
 
    /* Setup the bot */
    dpp::cluster bot(configdocument["token"]);
@@ -59,55 +50,86 @@ int main(int argc, char const *argv[]) {
 
    /* Use the on_message_create event to look for commands */
    bot.on_message_create([&bot](const dpp::message_create_t &event) {
-      stringstream ss(event.msg->content);
+
+      stringstream ss(event.msg.content);
       string command;
       ss >> command;
 
-      // !help
-      // A command which shows the different avaiable commands for the bot
-      if (command == "!help") {
-	vector<string> helpCom = {"**!ping** - Returns pong!", "**!inspire** - Returns an inspirational quote", "**!crowFact** - Returns a fact about crows", "**!campus** - Returns an embedded live image of the UWB campus"};
+      /* !help */
+      /* A command which shows the different avaiable commands for the bot */
+      /* Requires comms.json to be read */
+      if (command == "!help" && commDB.size() > 0) {
 
+	string commDesc[2] = { "" };
 	string helpMsg = "";
-	for (int i = 0; i < helpCom.size(); i++) {
-		helpMsg += (helpCom[i] + "\n");
+
+	for (int i = 0; i < commDB.size() - 1; i++) {
+		commDesc[0] = commDB[i]["comm"];
+		commDesc[1] = commDB[i]["desc"];
+		helpMsg += (commDesc[0] + " - " + commDesc[1] + "\n");
 	}
+	commDesc[0] = commDB[commDB.size() - 1]["comm"];
+	commDesc[1] = commDB[commDB.size() - 1]["desc"];
+	helpMsg += (commDesc[0] + " - " + commDesc[1]);
 
-	bot.message_create(dpp::message(event.msg->channel_id, helpMsg));
+	bot.message_create(dpp::message(event.msg.channel_id, helpMsg));
       }
 
-      // !ping
-      // A test command that returns a single message
+      /* !ping */
+      /* A test command that returns a single message */
       if (command == "!ping") {
-         bot.message_create(dpp::message(event.msg->channel_id, "Pong!"));
+         bot.message_create(dpp::message(event.msg.channel_id, "Pong!"));
       }
 
-      //!inspire
-      // A test command that returns a single insirpartional quote
+      /* !inspire */
+      /* A test command that returns a single insirpartional quote */
       if (command == "!inspire") {
             
-            bot.message_create(dpp::message(event.msg->channel_id, "***SURPASS YOUR LIMITS***"));
+            bot.message_create(dpp::message(event.msg.channel_id, "***SURPASS YOUR LIMITS***"));
       }
       
-      if (command == "!crowFact") {
-         vector<string> crowFacts = {"Young crows leave the nest after four weeks.", "Crows have around 250 different calls.", 
-            "Crow eggs hatch after 20-40 days.", "Crows are COOL", "Crows are part of the family Corvidae.", "Crows are omnivores."};
-         int max; 
-         max = crowFacts.size();
-         srand(time(0));
-         bot.message_create(dpp::message(event.msg->channel_id, crowFacts.at(rand()%max)));
+      /* !crowFact */
+      /* Sends a random crow fact */
+      /* Requires crows.json to be read */
+      if (command == "!crowFact" && crowDB.size() > 0) {
+         
+	/* Same number pull prevention */
+	      while (crowRand == crowLast) {
+		crowRand = rand()%crowDB.size();
+	      }
+	      crowLast = crowRand;
+
+         bot.message_create(dpp::message(event.msg.channel_id, crowDB[crowRand]["fact"]));
       }
 
-	/*
-	if (command == "!suggestSongs") {
-		if (songDB == true) {
+      /* !songSuggest */
+      /* Sends a random song suggestion */
+      /* Requires songs.json to be read */
+	if (command == "!songSuggest" && songDB.size() > 0) {
+	
+		//string title = "";
+		//string artist = "";
+		//string url = "";	
 
+		/* Same number pull prevention */
+		while (songRand == songLast) {
+			songRand = rand()%songDB.size();
 		}
-	}
-      */
+		songLast = songRand;
 
-      // !campus
-      // Sends an embedded image of the UWB campus grounds
+		string title = songDB[songRand]["title"];
+		string artist = songDB[songRand]["artist"];
+		string url = songDB[songRand]["url"];
+
+		string songMsg = "**Title:** " + title +
+				 "\n**Artist:** " + artist +
+				 "\n**URL:** " + url;
+
+		bot.message_create(dpp::message(event.msg.channel_id, songMsg));
+	}
+
+      /* !campus */
+      /* Sends an embedded image of the UWB campus grounds */
       if (command == "!campus") {
 
       string webcam;
@@ -125,7 +147,7 @@ int main(int argc, char const *argv[]) {
 	    set_timestamp(time(0));
 
       	 /* reply with the created embed */
-         bot.message_create(dpp::message(event.msg->channel_id, campusEmbed).set_reference(event.msg->id));
+         bot.message_create(dpp::message(event.msg.channel_id, campusEmbed).set_reference(event.msg.id));
       }
    });
 
