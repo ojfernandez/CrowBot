@@ -18,6 +18,8 @@ json crowDB; // Crow facts for !crowFact
 /* Random variables and weights */
 int crowRand = -1;
 int crowLast = -1;
+int crowImgRand = -1;
+int crowImgLast = -1;
 int songRand = -1;
 int songLast = -1;
 
@@ -91,25 +93,36 @@ int main(int argc, char const *argv[]) {
       /* !crowFact */
       /* Sends a random crow fact */
       /* Requires crows.json to be read */
-      if (command == "!crowFact" && crowDB.size() > 0) {
-         
-	/* Same number pull prevention */
-	      while (crowRand == crowLast) {
-		crowRand = rand()%crowDB.size();
-	      }
-	      crowLast = crowRand;
+      if (command == "!crowFact" && crowDB["facts"].size() > 0) {
 
-         bot.message_create(dpp::message(event.msg.channel_id, crowDB[crowRand]["fact"]));
+	/* Same number pull prevention */
+	while (crowRand == crowLast || crowImgRand == crowImgLast) {
+		crowRand = rand()%crowDB["facts"].size();
+		crowImgRand = rand()%crowDB["imgs"].size();
+      	}
+	      	crowLast = crowRand;
+	      	crowImgLast = crowImgRand;
+
+	      string crowFact = crowDB["facts"][crowRand]["fact"];
+	      string crowImg = crowDB["imgs"][crowImgRand]["url"];
+
+	      dpp::embed crowEmbed = dpp::embed().
+		      set_color(0x4b2e83).
+		      set_title("Crow Fact!").
+		      set_description(crowFact).
+		      set_image(crowImg).
+		      set_timestamp(time(0));
+
+         //bot.message_create(dpp::message(event.msg.channel_id, crowDB[crowRand]["fact"]));
+
+	 /* reply with the created embed */
+	 bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
       }
 
       /* !songSuggest */
       /* Sends a random song suggestion */
       /* Requires songs.json to be read */
-	if (command == "!songSuggest" && songDB.size() > 0) {
-	
-		//string title = "";
-		//string artist = "";
-		//string url = "";	
+	if (command == "!songSuggest" && songDB.size() > 0) {	
 
 		/* Same number pull prevention */
 		while (songRand == songLast) {
@@ -132,9 +145,8 @@ int main(int argc, char const *argv[]) {
       /* Sends an embedded image of the UWB campus grounds */
       if (command == "!campus") {
 
-      string webcam;
       int t = time(0);
-      webcam = "http://69.91.192.220/nph-jpeg.cgi?" + to_string(t);
+      string webcam = "http://69.91.192.220/nph-jpeg.cgi?" + to_string(t);
 
          dpp::embed campusEmbed = dpp::embed().
 	    set_color(0x4b2e83).
