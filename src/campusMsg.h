@@ -3,8 +3,6 @@
 
 #include <dpp/dpp.h>
 
-using namespace std;
-
 dpp::embed campusMsg();
 
 #endif
