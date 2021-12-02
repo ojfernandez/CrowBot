@@ -3,15 +3,19 @@
 #include <sstream>
 #include <iostream>
 
+#include <settingDB.cpp>
+#include <helpMsg.cpp>
+#include <crowMsg.cpp>
+#include <songMsg.cpp>
+#include <campusMsg.cpp>
+
 using json = nlohmann::json;
 using namespace std;
 
 const int DB = 4; // Global constant for # of databases (.json)
 
 /* Setup databases */
-/* Not sure how to put in scope inside main */
-json database[DB];
-
+json database[DB]; // Array of databases
 bool dbFound[DB] = { false }; // Array of bools represent if databases exist
 
 /* Random variables and weights */
@@ -95,7 +99,7 @@ int main(int argc, char const *argv[]) {
       if (command == "!crowFact") {
          if (dbFound[1]) {
             /* Creates an embed */
-            dpp::embed crowEmbed = crowMsg(database[1], crowRand, crowLast, crowImg, crowImgLast);
+            dpp::embed crowEmbed = crowMsg(database[1], crowRand, crowLast, crowImgRand, crowImgLast);
 
             /* reply with the created embed */
             bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
