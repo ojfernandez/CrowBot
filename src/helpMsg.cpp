@@ -1,3 +1,5 @@
+#include <string>
+
 #include "helpMsg.h"
 
 using json = nlohmann::json;

@@ -1,6 +1,6 @@
-#include "crowMsg.h"
-
 #include <string>
+
+#include "crowMsg.h"
 
 using json = nlohmann::json;
 using namespace std;

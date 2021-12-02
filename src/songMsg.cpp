@@ -1,6 +1,6 @@
-#include "songMsg.h"
-
 #include <string>
+
+#include "songMsg.h"
 
 using json = nlohmann::json;
 using namespace std;

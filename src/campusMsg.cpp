@@ -1,6 +1,6 @@
-#include "campusMsg.h"
-
 #include <string>
+
+#include "campusMsg.h"
 
 using namespace std;
 
