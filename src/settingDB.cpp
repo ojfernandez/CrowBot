@@ -1,3 +1,5 @@
+#include <fstream>
+
 #include "settingDB.h"
 
 using json = nlohmann::json;

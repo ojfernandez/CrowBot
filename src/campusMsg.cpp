@@ -1,5 +1,7 @@
 #include "campusMsg.h"
 
+#include <string>
+
 using namespace std;
 
 dpp::embed campusMsg() {
