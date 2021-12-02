@@ -123,6 +123,87 @@ UWCrowBot/fast:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/build
 .PHONY : UWCrowBot/fast
 
+src/campusMsg.o: src/campusMsg.cpp.o
+
+.PHONY : src/campusMsg.o
+
+# target to build an object file
+src/campusMsg.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.o
+.PHONY : src/campusMsg.cpp.o
+
+src/campusMsg.i: src/campusMsg.cpp.i
+
+.PHONY : src/campusMsg.i
+
+# target to preprocess a source file
+src/campusMsg.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.i
+.PHONY : src/campusMsg.cpp.i
+
+src/campusMsg.s: src/campusMsg.cpp.s
+
+.PHONY : src/campusMsg.s
+
+# target to generate assembly for a file
+src/campusMsg.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.s
+.PHONY : src/campusMsg.cpp.s
+
+src/crowMsg.o: src/crowMsg.cpp.o
+
+.PHONY : src/crowMsg.o
+
+# target to build an object file
+src/crowMsg.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o
+.PHONY : src/crowMsg.cpp.o
+
+src/crowMsg.i: src/crowMsg.cpp.i
+
+.PHONY : src/crowMsg.i
+
+# target to preprocess a source file
+src/crowMsg.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.i
+.PHONY : src/crowMsg.cpp.i
+
+src/crowMsg.s: src/crowMsg.cpp.s
+
+.PHONY : src/crowMsg.s
+
+# target to generate assembly for a file
+src/crowMsg.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.s
+.PHONY : src/crowMsg.cpp.s
+
+src/helpMsg.o: src/helpMsg.cpp.o
+
+.PHONY : src/helpMsg.o
+
+# target to build an object file
+src/helpMsg.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o
+.PHONY : src/helpMsg.cpp.o
+
+src/helpMsg.i: src/helpMsg.cpp.i
+
+.PHONY : src/helpMsg.i
+
+# target to preprocess a source file
+src/helpMsg.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.i
+.PHONY : src/helpMsg.cpp.i
+
+src/helpMsg.s: src/helpMsg.cpp.s
+
+.PHONY : src/helpMsg.s
+
+# target to generate assembly for a file
+src/helpMsg.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.s
+.PHONY : src/helpMsg.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -150,6 +231,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/songMsg.o: src/songMsg.cpp.o
+
+.PHONY : src/songMsg.o
+
+# target to build an object file
+src/songMsg.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o
+.PHONY : src/songMsg.cpp.o
+
+src/songMsg.i: src/songMsg.cpp.i
+
+.PHONY : src/songMsg.i
+
+# target to preprocess a source file
+src/songMsg.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.i
+.PHONY : src/songMsg.cpp.i
+
+src/songMsg.s: src/songMsg.cpp.s
+
+.PHONY : src/songMsg.s
+
+# target to generate assembly for a file
+src/songMsg.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.s
+.PHONY : src/songMsg.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... UWCrowBot"
+	@echo "... src/campusMsg.o"
+	@echo "... src/campusMsg.i"
+	@echo "... src/campusMsg.s"
+	@echo "... src/crowMsg.o"
+	@echo "... src/crowMsg.i"
+	@echo "... src/crowMsg.s"
+	@echo "... src/helpMsg.o"
+	@echo "... src/helpMsg.i"
+	@echo "... src/helpMsg.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/songMsg.o"
+	@echo "... src/songMsg.i"
+	@echo "... src/songMsg.s"
 .PHONY : help
 
 

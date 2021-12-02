@@ -4,7 +4,7 @@
 using json = nlohmann::json;
 using namespace std;
 
-string crowMsg(const json j, int& song, int& songLast) {
+string songMsg(const json j, int& song, int& songLast) {
 
    /* Same number pull prevention */
    while (song == songLast) {
@@ -13,14 +13,14 @@ string crowMsg(const json j, int& song, int& songLast) {
    songLast = song;
    
    /* Gets titme, artist, and URL from .json */
-   string title = songDB[songRand]["title"];
-   string artist = songDB[songRand]["artist"];
-   string url = songDB[songRand]["url"];
+   string title = j[song]["title"];
+   string artist = j[song]["artist"];
+   string url = j[song]["url"];
 
    /* Creates string from .json info */
-   string songMsg = "**Title:** " + title +
+   string msg = "**Title:** " + title +
    "\n**Artist:** " + artist +
    "\n**URL:** " + url;
    
-   return songMsg;
+   return msg;
 }

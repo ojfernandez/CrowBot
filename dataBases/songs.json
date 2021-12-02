@@ -1,30 +1,5 @@
 [
 	{
-		"title" : "title 1",
-		"artist" : "artist 1",
-		"url" : "url 1"
-	},
-	{
-		"title" : "title.2",
-		"artist" : "artist.2",
-		"url" : "url.2"
-	},
-	{
-		"title" : "title3",
-		"artist" : "artist3",
-		"url" : "url3"
-	},
-	{
-		"title" : "t i t l e 3",
-		"artist" : "a r t i s t 3",
-		"url" : "u r l 3"
-	},
-	{
-		"title" : "**TITLE 4**",
-		"artist" : "**artist 4**",
-		"url" : "**uRl4**"
-	},
-	{
 		"title" : "Loretta",
 		"artist" : "Ginger Root",
 		"url" : "https://www.youtube.com/watch?v=u-WTfP3WJc4"
@@ -45,8 +20,48 @@
 		"url" : "https://www.youtube.com/watch?v=T_lC2O1oIew"
 	},
 	{
-		"title" : "The \"Mario Kart\" Lick",
-		"artist" : "Saxologic",
-		"url" : "https://www.youtube.com/watch?v=3rD-tdEFKlg"
+		"title" : "soundtrack for your backseat",
+		"artist" : "sundiver ca",
+		"url" : "https://www.youtube.com/watch?v=ofwGXmI6W_Y"
+	},
+	{
+		"title" : "Footsteps in the Dark, Pts. 1 & 2",
+		"artist" : "The Isley Brothers",
+		"url" : "https://www.youtube.com/watch?v=Dyq9zlYMw9g"
+	},
+	{
+		"title" : "Summer Madness",
+		"artist" : "Kool & The Gang",
+		"url" : "https://www.youtube.com/watch?v=vQSI-rUUYqA"
+	},
+	{
+		"title" : "You Don't Have To Change",
+		"artist" : "Kool & The Gang",
+		"url" : "https://www.youtube.com/watch?v=GJY03C-JFL4"
+	},
+	{
+		"title" : "Summer In The City 1973",
+		"artist" : "Quincy Jones",
+		"url" : "https://www.youtube.com/watch?v=6xN3KOY2kbg"
+	},
+	{
+		"title" : "Middy Titty",
+		"artist" : "Paulie Leparik",
+		"url" : "https://www.youtube.com/watch?v=wqOvWxpRjlU"
+	},
+	{
+		"title" : "Six Forty Seven",
+		"artist" : "Instupendo",
+		"url" : "https://www.youtube.com/watch?v=YHlcmmkiwbU"
+	},
+	{
+		"title" : "My Song",
+		"artist" : "Labi Siffre",
+		"url" : "https://www.youtube.com/watch?v=3FW9cBDUnJQ"
+	},
+	{
+		"title" : "backroom labyrinth",
+		"artist" : "Oliver Buckland",
+		"url" : "https://www.youtube.com/watch?v=iC452qNLXFg"
 	}
 ]

@@ -1,5 +1,9 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.o"
+  "CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o"
+  "CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
   "CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
+  "CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o"
   "UWCrowBot"
   "UWCrowBot.pdb"
 )

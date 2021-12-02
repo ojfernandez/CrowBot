@@ -19,12 +19,12 @@ dpp::embed crowMsg(const json j, int& fact, int& factLast, int& img, int& imgLas
    string crowImg = j["imgs"][img]["url"];
 
    /* Creates an embed */
-   dpp::embed crowEmbed = dpp::embed().
+   dpp::embed embed = dpp::embed().
    set_color(0x4b2e83).
    set_title("Crow Fact!").
    set_description(crowFact).
    set_image(crowImg).
    set_timestamp(time(0));
    
-   return crowEmbed;
+   return embed;
 }
