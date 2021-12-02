@@ -3,13 +3,24 @@
 
 CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.o
  /root/CrowBot/src/campusMsg.cpp
+ /root/CrowBot/src/campusMsg.h
 CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o
  /root/CrowBot/src/crowMsg.cpp
+ /root/CrowBot/src/crowMsg.h
 CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o
  /root/CrowBot/src/helpMsg.cpp
+ /root/CrowBot/src/helpMsg.h
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o
+ ../include/templatebot/templatebot.h
+ /root/CrowBot/src/campusMsg.h
+ /root/CrowBot/src/crowMsg.h
+ /root/CrowBot/src/helpMsg.h
  /root/CrowBot/src/main.cpp
+ /root/CrowBot/src/settingDB.h
+ /root/CrowBot/src/songMsg.h
 CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o
  /root/CrowBot/src/settingDB.cpp
+ /root/CrowBot/src/settingDB.h
 CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o
  /root/CrowBot/src/songMsg.cpp
+ /root/CrowBot/src/songMsg.h

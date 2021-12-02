@@ -1,5 +1,6 @@
 #include <dpp/dpp.h>
 #include <dpp/nlohmann/json.hpp>
+#include <templatebot/templatebot.h>
 #include <sstream>
 #include <iostream>
 
@@ -74,7 +75,8 @@ int main(int argc, char const *argv[]) {
       /* Requires comms.json to be read */
       if (command == "!help") {
          if (dbFound[0]) {
-         bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
+	 string helpRep = helpMsg(database[0]);
+         bot.message_create(dpp::message(event.msg.channel_id, helpRep));
          }
          else {
             bot.message_create(dpp::message(event.msg.channel_id, command + failed));
@@ -114,7 +116,8 @@ int main(int argc, char const *argv[]) {
       /* Requires songs.json to be read */
       if (command == "!songSuggest") {	
          if (dbFound[2]) {
-            bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
+	    string songRep = songMsg(database[2], songRand, songLast);
+            bot.message_create(dpp::message(event.msg.channel_id, songRep));
          }
          else {
             bot.message_create(dpp::message(event.msg.channel_id, command + failed));
@@ -124,8 +127,11 @@ int main(int argc, char const *argv[]) {
       /* !campus */
       /* Sends an embedded image of the UWB campus grounds */
       if (command == "!campus") {
+	 /* Creates an embed */
+	 dpp::embed campusEmbed = campusMsg();
+
          /* reply with the created embed */
-         bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
+         bot.message_create(dpp::message(event.msg.channel_id, campusEmbed).set_reference(event.msg.id));
       }
    });
 
