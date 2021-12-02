@@ -1,5 +1,3 @@
-#include <dpp/dpp.h>
-#include <dpp/nlohmann/json.hpp>
 #include <iostream>
 
 #include "settingDB.h"

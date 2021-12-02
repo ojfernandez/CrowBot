@@ -1,6 +1,3 @@
-#include <dpp/dpp.h>
-#include <dpp/nlohmann/json.hpp>
-
 #include "songMsg.h"
 
 using json = nlohmann::json;
