@@ -2,6 +2,8 @@
 #include <dpp/nlohmann/json.hpp>
 #include <iostream>
 
+#include "settingDB.h"
+
 using json = nlohmann::json;
 using namespace std;
 

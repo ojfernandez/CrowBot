@@ -1,5 +1,6 @@
 #include <dpp/dpp.h>
-#include <dpp/nlohmann/json.hpp>
+
+#include "campusMsg.h"
 
 using json = nlohmann::json;
 using namespace std;
