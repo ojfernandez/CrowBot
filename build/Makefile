@@ -231,6 +231,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/settingDB.o: src/settingDB.cpp.o
+
+.PHONY : src/settingDB.o
+
+# target to build an object file
+src/settingDB.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o
+.PHONY : src/settingDB.cpp.o
+
+src/settingDB.i: src/settingDB.cpp.i
+
+.PHONY : src/settingDB.i
+
+# target to preprocess a source file
+src/settingDB.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.i
+.PHONY : src/settingDB.cpp.i
+
+src/settingDB.s: src/settingDB.cpp.s
+
+.PHONY : src/settingDB.s
+
+# target to generate assembly for a file
+src/settingDB.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.s
+.PHONY : src/settingDB.cpp.s
+
 src/songMsg.o: src/songMsg.cpp.o
 
 .PHONY : src/songMsg.o
@@ -279,6 +306,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/settingDB.o"
+	@echo "... src/settingDB.i"
+	@echo "... src/settingDB.s"
 	@echo "... src/songMsg.o"
 	@echo "... src/songMsg.i"
 	@echo "... src/songMsg.s"

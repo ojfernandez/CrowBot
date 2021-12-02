@@ -9,5 +9,7 @@ CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o: ../src/helpMsg.cpp
 
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o: ../src/main.cpp
 
+CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o: ../src/settingDB.cpp
+
 CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o: ../src/songMsg.cpp
 

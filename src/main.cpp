@@ -10,14 +10,9 @@ const int DB = 4; // Global constant for # of databases (.json)
 
 /* Setup databases */
 /* Not sure how to put in scope inside main */
-json database[DB] = {
-   commDB; // Command list for !help
-   songDB; // Song list for !song
-   crowDB; // Crow facts for !crowFact
-   clubDB; // Club list for !clubs
-}
+json database[DB];
 
-bool dbFound[DB] = false; // Array of bools represent if databases exist
+bool dbFound[DB] = { false }; // Array of bools represent if databases exist
 
 /* Random variables and weights */
 int crowRand = -1;
@@ -52,16 +47,16 @@ int main(int argc, char const *argv[]) {
          "../dataBases/songs.json",
          "../dataBases/crows.json",
          "../dataBases/clubs.json"
-      }
+      };
       
       /* Reading in .json files from dataBases folder */
       for (int i = 0; i < DB; i++) {
          dbFound[i] = settingDB(dbPath[i], database[i]);
       }
-   }
+   });
 
    /* Use the on_message_create event to look for commands */
-   bot.on_message_create([&bot](const dpp::message_create_t &event)) {
+   bot.on_message_create([&bot](const dpp::message_create_t &event) {
 
       string failed = " cannot execute. Database failed to open.";
 

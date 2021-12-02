@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/root/CrowBot/src/crowMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o"
   "/root/CrowBot/src/helpMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
   "/root/CrowBot/src/main.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
+  "/root/CrowBot/src/settingDB.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o"
   "/root/CrowBot/src/songMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
