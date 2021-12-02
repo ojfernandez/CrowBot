@@ -5,7 +5,6 @@ using json = nlohmann::json;
 using namespace std;
 
 dpp::embed campusMsg() {
-   
    /* URL for webcam with cache buster */
    string webcam = "http://69.91.192.220/nph-jpeg.cgi?" + to_string(time(0));
 

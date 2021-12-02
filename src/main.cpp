@@ -6,10 +6,29 @@
 using json = nlohmann::json;
 using namespace std;
 
-const int DATABASES = 4;
+const int DB = 4; // Global constant for # of databases (.json)
+
+/* Setup databases */
+/* Not sure how to put in scope inside main */
+json database[DB] = {
+   commDB; // Command list for !help
+   songDB; // Song list for !song
+   crowDB; // Crow facts for !crowFact
+   clubDB; // Club list for !clubs
+}
+
+bool dbFound[DB] = false; // Array of bools represent if databases exist
+
+/* Random variables and weights */
+int crowRand = -1;
+int crowLast = -1;
+int crowImgRand = -1;
+int crowImgLast = -1;
+int songRand = -1;
+int songLast = -1;
 
 int main(int argc, char const *argv[]) {
-   srand(time(0));
+   srand(time(0)); // Seed randomness
 
    json configdocument;
    ifstream configfile("../config.json");
@@ -25,54 +44,27 @@ int main(int argc, char const *argv[]) {
       }
    });
    
-   bot.on_ready([&bot](const dpp::ready_t &event)) {
-      /* Setup databases */
-      json commDB; // Command list for !help
-      json songDB; // Song list for !song
-      json crowDB; // Crow facts for !crowFact
-      json clubDB; // Club list for !clubs
+   bot.on_ready([&bot](const dpp::ready_t &event) {
       
-      bool dbFound[DATABASES] = { false }; // Array of bools represent if databases exist
-      
-      /* Random variables and weights */
-      int crowRand = -1;
-      int crowLast = -1;
-      int crowImgRand = -1;
-      int crowImgLast = -1;
-      int songRand = -1;
-      int songLast = -1;
+      /* Array of strings of the path to databases */
+      string dbPath[DB] = {
+         "../dataBases/comms.json",
+         "../dataBases/songs.json",
+         "../dataBases/crows.json",
+         "../dataBases/clubs.json"
+      }
       
       /* Reading in .json files from dataBases folder */
-      ifstream db1("../dataBases/comms.json");
-      if (db1.is_open()) {
-         db1 >> commDB;
-         dbFound[0] = true;
-      }
-      
-      ifstream db2("../dataBases/songs.json");
-      if (db2.is_open()) {
-         db2 >> songDB;
-         dbFound[1] = true;
-      }
-      
-      ifstream db3("../dataBases/crows.json");
-      if (db3.is_open()) {
-         db3 >> crowDB;
-         dbFound[2] = true;
-      }
-      
-      ifstream db4("../dataBases/clubs.json");
-      if (db4.is_open()) {
-         db4 >> clubDB;
-         dbFound[3] = true;
+      for (int i = 0; i < DB; i++) {
+         dbFound[i] = settingDB(dbPath[i], database[i]);
       }
    }
 
    /* Use the on_message_create event to look for commands */
-   bot.on_message_create([&bot](const dpp::message_create_t &event) {
+   bot.on_message_create([&bot](const dpp::message_create_t &event)) {
 
-      string failed = " not found. Database failed to open.";
-      
+      string failed = " cannot execute. Database failed to open.";
+
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
       string command;
@@ -82,12 +74,12 @@ int main(int argc, char const *argv[]) {
       /* A command which shows the different avaiable commands for the bot */
       /* Requires comms.json to be read */
       if (command == "!help") {
-      	 if (dbFound[0]) {
-            bot.message_create(dpp::message(event.msg.channel_id, helpMsg(commDB)));
-	 }
-	 else {
-	    bot.message_create(dpp::message(event.msg.channel_id, (command + failed));
-	 }
+         if (dbFound[0]) {
+         bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+         }
       }
 
       /* !ping */
@@ -105,29 +97,29 @@ int main(int argc, char const *argv[]) {
       /* !crowFact */
       /* Sends a random crow fact */
       /* Requires crows.json to be read */
-      if (command == "!crowFact" && dbFound[1]) {
-	 if (dbFound[1]) {
+      if (command == "!crowFact") {
+         if (dbFound[1]) {
             /* Creates an embed */
-            dpp::embed crowEmbed = crowMsg(crowDB, crowRand, crowLast, crowImg, crowImgLast);
+            dpp::embed crowEmbed = crowMsg(database[1], crowRand, crowLast, crowImg, crowImgLast);
 
             /* reply with the created embed */
             bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
-	 }
-	 else {
-	    bot.message_create(dpp::message(event.msg.channel_id, (command + failed));
-	 }
-     }
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+         }
+      }
 
       /* !songSuggest */
       /* Sends a random song suggestion */
       /* Requires songs.json to be read */
-      if (command == "!songSuggest") {
-         if (dbFound[2]) {      
-            bot.message_create(dpp::message(event.msg.channel_id, songMsg(songDB, songRand, songLast)));
-      	 }
-	 else {
-	    bot.message_create(dpp::message(event.msg.channel_id, (command + failed));
-	 }
+      if (command == "!songSuggest") {	
+         if (dbFound[2]) {
+            bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+         }
       }
 
       /* !campus */

@@ -5,7 +5,6 @@ using json = nlohmann::json;
 using namespace std;
 
 string helpMsg(const json j) {
-
    string msg = "";
    string commDesc[2] = { "" };
 

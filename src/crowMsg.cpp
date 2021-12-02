@@ -5,7 +5,6 @@ using json = nlohmann::json;
 using namespace std;
 
 dpp::embed crowMsg(const json j, int& fact, int& factLast, int& img, int& imgLast) {
-
    /* Same number pull prevention */
    while (fact == factLast || img == imgLast) {
       fact = rand()%j["facts"].size();
@@ -19,12 +18,12 @@ dpp::embed crowMsg(const json j, int& fact, int& factLast, int& img, int& imgLas
    string crowImg = j["imgs"][img]["url"];
 
    /* Creates an embed */
-   dpp::embed embed = dpp::embed().
+   dpp::embed crowEmbed = dpp::embed().
    set_color(0x4b2e83).
    set_title("Crow Fact!").
    set_description(crowFact).
    set_image(crowImg).
    set_timestamp(time(0));
    
-   return embed;
+   return crowEmbed;
 }
