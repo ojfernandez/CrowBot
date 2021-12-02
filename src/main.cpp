@@ -3,12 +3,6 @@
 #include <sstream>
 #include <iostream>
 
-#include <settingDB.cpp>
-#include <helpMsg.cpp>
-#include <crowMsg.cpp>
-#include <songMsg.cpp>
-#include <campusMsg.cpp>
-
 using json = nlohmann::json;
 using namespace std;
 
