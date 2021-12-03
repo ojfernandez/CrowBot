@@ -1,8 +1,8 @@
 [
 	{
 		"comm" : "**!ping**",
-                "desc" : "Returns pong!"
-       	},
+		"desc" : "Returns pong!"
+	},
 	{ 
 		"comm" : "**!inspire**",
 		"desc" : "Returns an inspiration quote"
