@@ -5,7 +5,7 @@
 using json = nlohmann::json;
 using namespace std;
 
-dpp::embed crowMsg(json j, int& fact, int& factLast, int& img, int& imgLast) {
+dpp::embed crowMsg(json& j, int& fact, int& factLast, int& img, int& imgLast) {
    /* Same number pull prevention */
    /*
    while (fact == factLast || img == imgLast) {

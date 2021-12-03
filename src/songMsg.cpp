@@ -5,7 +5,7 @@
 using json = nlohmann::json;
 using namespace std;
 
-string songMsg(json j, int& song, int& songLast) {
+string songMsg(json& j, int& song, int& songLast) {
    /* Same number pull prevention */
    while (song == songLast) {
       song = rand() % j.size();
