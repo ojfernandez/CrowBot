@@ -5,17 +5,17 @@
 using json = nlohmann::json;
 using namespace std;
 
-string songMsg(const json j, int& song, int& songLast) {
+string songMsg(json j, int& song, int& songLast) {
    /* Same number pull prevention */
    while (song == songLast) {
-      song = rand()%j.size();
+      song = rand() % j.size();
    }
    songLast = song;
    
    /* Gets titme, artist, and URL from .json */
-   string title = j[song]["title"];
-   string artist = j[song]["artist"];
-   string url = j[song]["url"];
+   string title = j[song].at("title");
+   string artist = j[song].at("artist");
+   string url = j[song].at("url");
 
    /* Creates string from .json info */
    string msg = "**Title:** " + title +

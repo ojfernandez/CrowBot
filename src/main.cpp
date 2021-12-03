@@ -47,10 +47,10 @@ int main(int argc, char const *argv[]) {
       
       /* Array of strings of the path to databases */
       string dbPath[DB] = {
-         "../dataBases/comms.json",
-         "../dataBases/songs.json",
-         "../dataBases/crows.json",
-         "../dataBases/clubs.json"
+        "../dataBases/comms.json",
+        "../dataBases/songs.json",
+        "../dataBases/crows.json",
+        "../dataBases/clubs.jsonx"
       };
       
       /* Reading in .json files from dataBases folder */
@@ -62,12 +62,12 @@ int main(int argc, char const *argv[]) {
    /* Use the on_message_create event to look for commands */
    bot.on_message_create([&bot](const dpp::message_create_t &event) {
 
-      string failed = " cannot execute. Database failed to open.";
-
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
       string command;
       ss >> command;
+
+      string failed = "Cannot execute " + command + ". Database failed to open.";
 
       /* !help */
       /* A command which shows the different avaiable commands for the bot */
@@ -77,7 +77,7 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
          }
       }
 
@@ -88,7 +88,7 @@ int main(int argc, char const *argv[]) {
       }
 
       /* !inspire */
-      /* A test command that returns a single insirpartional quote */
+      /* A test command that returns a single insparational quote */
       if (command == "!inspire") {
          bot.message_create(dpp::message(event.msg.channel_id, "***SURPASS YOUR LIMITS***"));
       }
@@ -105,7 +105,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
          }
       }
 
@@ -117,7 +117,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, command + failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
          }
       }
 
