@@ -48,8 +48,8 @@ int main(int argc, char const *argv[]) {
       /* Array of strings of the path to databases */
       string dbPath[DB] = {
         "../dataBases/comms.json",
-        "../dataBases/songs.json",
         "../dataBases/crows.json",
+	"../dataBases/songs.json",
         "../dataBases/clubs.jsonx"
       };
       

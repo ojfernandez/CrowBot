@@ -6,18 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/root/CrowBot/src/settingDB.cpp
-fstream
--
+/root/CrowBot/src/crowMsg.cpp
 string
 -
-settingDB.h
-/root/CrowBot/src/settingDB.h
-iostream
--
+crowMsg.h
+/root/CrowBot/src/crowMsg.h
 
-/root/CrowBot/src/settingDB.h
-string
+/root/CrowBot/src/crowMsg.h
+dpp/dpp.h
 -
 dpp/nlohmann/json.hpp
 -
