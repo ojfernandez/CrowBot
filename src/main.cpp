@@ -55,7 +55,7 @@ int main(int argc, char const *argv[]) {
       
       /* Reading in .json files from dataBases folder */
       for (int i = 0; i < DB; i++) {
-         dbFound[i] = settingDB(dbPath[i], database[i]);
+         database[i] = settingDB(dbPath[i], dbFound[i]);
       }
    });
 
