@@ -11,7 +11,6 @@ CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o
  /root/CrowBot/src/helpMsg.cpp
  /root/CrowBot/src/helpMsg.h
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o
- ../include/templatebot/templatebot.h
  /root/CrowBot/src/campusMsg.h
  /root/CrowBot/src/crowMsg.h
  /root/CrowBot/src/helpMsg.h

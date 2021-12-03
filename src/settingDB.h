@@ -4,6 +4,6 @@
 #include <string>
 #include <dpp/nlohmann/json.hpp>
 
-bool settingDB(const string, nlohmann::json&);
+bool settingDB(const std::string, nlohmann::json&);
 
 #endif

@@ -4,6 +4,6 @@
 #include <string>
 #include <dpp/nlohmann/json.hpp>
 
-string helpMsg(const nlohmann::json);
+std::string helpMsg(const nlohmann::json);
 
 #endif
