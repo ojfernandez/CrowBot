@@ -9,6 +9,8 @@
 #include "songMsg.h"
 #include "campusMsg.h"
 
+#include "cpr/cpr.h"
+
 using json = nlohmann::json;
 using namespace std;
 
