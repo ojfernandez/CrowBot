@@ -1,0 +1,42 @@
+{
+	"facts" : [
+		{
+			"fact" : "Young crows leave the nest after four weeks."
+		},
+		{
+			"fact" : "Crows have around 250 different calls."
+		},
+		{
+			"fact" : "Crow eggs hatch after 20-40 days."
+		},
+		{
+			"fact" : "Crows are COOL!"
+		},
+		{
+			"fact" : "Crows are part of the family Corvidae."
+		},
+		{
+			"fact" : "Crows are omnivores."
+		}
+	],
+	"imgs" : [
+		{
+			"url" : "https://static.boredpanda.com/blog/wp-content/uploads/2017/04/brave-crows-not-scared-106-58f8b4d877206__605.jpg"
+		},
+		{
+			"url" : "https://static.boredpanda.com/blog/wp-content/uploads/2017/05/brave-crows-not-scared-123-59075fed3c024__605.jpg"
+		},
+		{
+			"url" : "https://static.boredpanda.com/blog/wp-content/uploads/2017/04/brave-crows-not-scared-128-58ff306e29441__605.jpg"
+		},
+		{
+			"url" : "https://static.boredpanda.com/blog/wp-content/uploads/2017/05/IMG_0837-59079d869c3cf__605.jpg"
+		},
+		{
+			"url" : "https://static.boredpanda.com/blog/wp-content/uploads/2017/04/brave-crows-not-scared-102-58fd99caa9111__605.jpg"
+		},
+		{
+			"url" : "https://i.kym-cdn.com/photos/images/facebook/002/050/348/0bd.jpg"
+		}
+	]
+}

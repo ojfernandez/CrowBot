@@ -1,0 +1,22 @@
+[
+	{
+		"comm" : "**!ping**",
+		"desc" : "Returns pong!"
+	},
+	{ 
+		"comm" : "**!inspire**",
+		"desc" : "Returns an inspiration quote"
+	},
+	{
+		"comm" : "**!crowFact**",
+		"desc" : "Returns a fact about crows"
+	},
+	{
+		"comm" : "**!songSuggest**",
+		"desc" : "Returns a song suggestion for studying"
+	},
+	{
+		"comm" : "**!campus**",
+		"desc" : "Returns an embedded live image of the UWB campus"
+	}
+]

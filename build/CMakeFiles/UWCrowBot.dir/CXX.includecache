@@ -6,27 +6,15 @@
 
 #IncludeRegexTransform: 
 
-../include/templatebot/templatebot.h
-dpp/dpp.h
+/root/CrowBot/src/crowMsg.cpp
+string
 -
-dpp/fmt/format.h
--
-dpp/nlohmann/json.hpp
--
-dpp/discordevents.h
--
-dpp/message.h
--
+crowMsg.h
+/root/CrowBot/src/crowMsg.h
 
-/home/pi/CrowBot/src/main.cpp
+/root/CrowBot/src/crowMsg.h
 dpp/dpp.h
 -
 dpp/nlohmann/json.hpp
--
-templatebot/templatebot.h
--
-iomanip
--
-sstream
 -
 

@@ -1,31 +1,40 @@
 #include <dpp/dpp.h>
 #include <dpp/nlohmann/json.hpp>
-#include <templatebot/templatebot.h>
-#include <iomanip>
 #include <sstream>
+#include <iostream>
+
+#include "settingDB.h"
+#include "helpMsg.h"
+#include "crowMsg.h"
+#include "songMsg.h"
+#include "campusMsg.h"
 
 using json = nlohmann::json;
 using namespace std;
 
+const int DB = 4; // Global constant for # of databases (.json)
+
+/* Setup databases */
+json database[DB]; // Array of databases
+bool dbFound[DB] = { false }; // Array of bools represent if databases exist
+
+/* Random variables and weights */
+int crowRand = -1;
+int crowLast = -1;
+int crowImgRand = -1;
+int crowImgLast = -1;
+int songRand = -1;
+int songLast = -1;
+
 int main(int argc, char const *argv[]) {
+   srand(time(0)); // Seed randomness
+
    json configdocument;
    ifstream configfile("../config.json");
    configfile >> configdocument;
-   ifstream infile("songs.txt");
-   bool songs = true;
-   bool crowFacts = true;
-   bool clubs = true;
-   if (!infile) {
-   	song = false;
-	cout << "Can't read song file" << endl;
-   }
 
    /* Setup the bot */
    dpp::cluster bot(configdocument["token"]);
-
-	//create vector of song
-	vector<string[3]> songSuggestions;
-	
 
    /* Log event */
    bot.on_log([&bot](const dpp::log_t &event) {
@@ -33,58 +42,90 @@ int main(int argc, char const *argv[]) {
          cout << dpp::utility::current_date_time() << " [" << dpp::utility::loglevel(event.severity) << "] " << event.message << "\n";
       }
    });
+   
+   bot.on_ready([&bot](const dpp::ready_t &event) {
+      
+      /* Array of strings of the path to databases */
+      string dbPath[DB] = {
+        "../dataBases/comms.json",
+        "../dataBases/crows.json",
+	"../dataBases/songs.json",
+        "../dataBases/clubs.jsonx"
+      };
+      
+      /* Reading in .json files from dataBases folder */
+      for (int i = 0; i < DB; i++) {
+         database[i] = settingDB(dbPath[i], dbFound[i]);
+      }
+   });
 
    /* Use the on_message_create event to look for commands */
    bot.on_message_create([&bot](const dpp::message_create_t &event) {
-      stringstream ss(event.msg->content);
+
+      /* Reads messages from Discord */
+      stringstream ss(event.msg.content);
       string command;
       ss >> command;
-      
-      // !ping
-      // A test command that returns a single message
+
+      string failed = "Cannot execute " + command + ". Database failed to open.";
+
+      /* !help */
+      /* A command which shows the different avaiable commands for the bot */
+      /* Requires comms.json to be read */
+      if (command == "!help") {
+         if (dbFound[0]) {
+         bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
+         }
+      }
+
+      /* !ping */
+      /* A test command that returns a single message */
       if (command == "!ping") {
-         bot.message_create(dpp::message(event.msg->channel_id, "Pong!"));
+         bot.message_create(dpp::message(event.msg.channel_id, "Pong!"));
       }
 
-      //!inspire
-      // A test command that returns a single insirpartional quote
+      /* !inspire */
+      /* A test command that returns a single insparational quote */
       if (command == "!inspire") {
-            
-            bot.message_create(dpp::message(event.msg->channel_id, "***SURPASS YOUR LIMITS***"));
+         bot.message_create(dpp::message(event.msg.channel_id, "***SURPASS YOUR LIMITS***"));
       }
-      
+
+      /* !crowFact */
+      /* Sends a random crow fact */
+      /* Requires crows.json to be read */
       if (command == "!crowFact") {
-         vector<string> crowFacts = {"Young crows leave the nest after four weeks.", "Crows have around 250 different calls.", 
-            "Crow eggs hatch after 20-40 days.", "Crows are COOL", "Crows are part of the family Corvidae.", "Crows are omnivores."};
-         int max; 
-         max = 5;
-         srand(time(0));
-         bot.message_create(dpp::message(event.msg->channel_id, crowFacts.at(rand()%max)));
+         if (dbFound[1]) {
+            /* Creates an embed */
+            dpp::embed crowEmbed = crowMsg(database[1], crowRand, crowLast, crowImgRand, crowImgLast);
+
+            /* reply with the created embed */
+            bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
+         }
       }
 
-	if (command == ("!suggestSongs") {
-	}
-      
-      // !campus
-      // Sends an embedded image of the UWB campus grounds
+      /* !songSuggest */
+      /* Sends a random song suggestion */
+      /* Requires songs.json to be read */
+      if (command == "!songSuggest") {	
+         if (dbFound[2]) {
+            bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
+         }
+      }
+
+      /* !campus */
+      /* Sends an embedded image of the UWB campus grounds */
       if (command == "!campus") {
-
-      string webcam;
-      int t = time(0);
-      webcam = "http://69.91.192.220/nph-jpeg.cgi?" + to_string(t);
-
-         dpp::embed campusEmbed = dpp::embed().
-	    set_color(0x4b2e83).
-	    set_title("UWB Campus Live Image").
-	    set_url("https://www.uwb.edu/about/webcam").
-	    set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
-	    set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
-	    set_image(webcam).
-	    set_footer(dpp::embed_footer().set_text(webcam)).
-	    set_timestamp(time(0));
-
-      	 /* reply with the created embed */
-         bot.message_create(dpp::message(event.msg->channel_id, campusEmbed).set_reference(event.msg->id));
+         /* reply with the created embed */
+         bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
    });
 
