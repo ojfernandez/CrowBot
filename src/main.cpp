@@ -8,8 +8,7 @@
 #include "crowMsg.h"
 #include "songMsg.h"
 #include "campusMsg.h"
-
-#include "cpr/cpr.h"
+#include "classInfo.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -128,6 +127,14 @@ int main(int argc, char const *argv[]) {
       if (command == "!campus") {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
+      }
+      
+      /* !classInfo */
+      /* Gets information regarding UW Course */
+      if (command == "!classInfo") {
+      	string parameter;
+      	ss >> parameter;
+      	bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)));
       }
    });
 
