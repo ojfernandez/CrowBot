@@ -11,12 +11,13 @@ void clubMenu(const json& j, dpp::message& m) {
       dpp::component().add_component(
          dpp::component().set_type(dpp::cot_selectmenu).
          set_placeholder("Clubs @ UWB").
-         set_id("clubMenu")
+	 add_select_option(dpp::select_option("Club", "Discord Link", "Club desc.")).
+         set_id("ClubMenu")
       )
    );
 
    cout << "Menu made" << endl;
-
+/*
    for (int i = 0; i < j.size(); i++) {
       cout << "Option " << i << endl;
       m.add_component(
@@ -26,4 +27,5 @@ void clubMenu(const json& j, dpp::message& m) {
          )
       );
    }
+   */
 }
