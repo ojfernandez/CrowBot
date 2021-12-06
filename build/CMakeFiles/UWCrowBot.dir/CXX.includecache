@@ -6,33 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/root/CrowBot/src/campusMsg.cpp
-string
--
-campusMsg.h
-/root/CrowBot/src/campusMsg.h
-
 /root/CrowBot/src/campusMsg.h
 dpp/dpp.h
 -
 
-/root/CrowBot/src/crowMsg.cpp
-string
+/root/CrowBot/src/clubMsg.h
+dpp/dpp.h
 -
-crowMsg.h
-/root/CrowBot/src/crowMsg.h
+dpp/nlohmann/json.hpp
+-
 
 /root/CrowBot/src/crowMsg.h
 dpp/dpp.h
 -
 dpp/nlohmann/json.hpp
 -
-
-/root/CrowBot/src/helpMsg.cpp
-string
--
-helpMsg.h
-/root/CrowBot/src/helpMsg.h
 
 /root/CrowBot/src/helpMsg.h
 string
@@ -57,6 +45,8 @@ crowMsg.h
 /root/CrowBot/src/crowMsg.h
 songMsg.h
 /root/CrowBot/src/songMsg.h
+clubMsg.h
+/root/CrowBot/src/clubMsg.h
 campusMsg.h
 /root/CrowBot/src/campusMsg.h
 

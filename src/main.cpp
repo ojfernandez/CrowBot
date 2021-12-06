@@ -7,6 +7,7 @@
 #include "helpMsg.h"
 #include "crowMsg.h"
 #include "songMsg.h"
+#include "clubMsg.h"
 #include "campusMsg.h"
 
 using json = nlohmann::json;
@@ -41,6 +42,9 @@ int main(int argc, char const *argv[]) {
       if (event.severity >= dpp::ll_debug) {
          cout << dpp::utility::current_date_time() << " [" << dpp::utility::loglevel(event.severity) << "] " << event.message << "\n";
       }
+      if (event.severity > dpp::ll_trace) {
+         std::cout << event.message << "\n";
+      }
    });
    
    bot.on_ready([&bot](const dpp::ready_t &event) {
@@ -60,7 +64,7 @@ int main(int argc, char const *argv[]) {
    });
 
    /* Use the on_message_create event to look for commands */
-   bot.on_message_create([&bot](const dpp::message_create_t &event) {
+   bot.on_message_create([&bot](const dpp::message_create_t& event) {
 
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
@@ -126,7 +130,8 @@ int main(int argc, char const *argv[]) {
       if (command == "!clubs") {
          if (dbFound[3]) {
             dpp::message clubMenu(event.msg.channel_id, "Clubs @ UWB");
-            bot.message_create(clubMsg(database[3], clubMenu));
+	    clubMsg(database[3], clubMenu);
+            bot.message_create(clubMenu);
          }
          else {
             bot.message_create(dpp::message(event.msg.channel_id, failed));
@@ -140,6 +145,13 @@ int main(int argc, char const *argv[]) {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
+   });
+
+   /* Use on_select_click for when a suer clicks your select menu */
+   bot.on_select_click([&bot](const dpp::select_click_t& event) {
+      /* Select clicks are still interactions and must be replied to in some form */
+      /* This is needed to prevent the "this interaction has failed" message from Discord to the user. */
+      event.reply(dpp::ir_channel_message_with_source, "You clicked " + event.custom_id + " and chose: " + event.values[0]);
    });
 
    /* Start bot */
