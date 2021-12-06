@@ -129,9 +129,9 @@ int main(int argc, char const *argv[]) {
       /* Requires clubs.json to be read */
       if (command == "!clubs") {
          if (dbFound[3]) {
-            dpp::message clubMenu(event.msg.channel_id, "Clubs @ UWB");
-	    clubMsg(database[3], clubMenu);
-            bot.message_create(clubMenu);
+            dpp::message clubList(event.msg.channel_id);
+	    clubMenu(database[3], clubList);
+            bot.message_create(clubList);
          }
          else {
             bot.message_create(dpp::message(event.msg.channel_id, failed));
@@ -149,9 +149,14 @@ int main(int argc, char const *argv[]) {
 
    /* Use on_select_click for when a suer clicks your select menu */
    bot.on_select_click([&bot](const dpp::select_click_t& event) {
-      /* Select clicks are still interactions and must be replied to in some form */
-      /* This is needed to prevent the "this interaction has failed" message from Discord to the user. */
-      event.reply(dpp::ir_channel_message_with_source, "You clicked " + event.custom_id + " and chose: " + event.values[0]);
+      if (event.custom_id == "ClubMenu") {
+         event.reply(dpp::ir_channel_message_with_source, clubMsg);
+      }
+      else {
+         /* Select clicks are still interactions and must be replied to in some form */
+         /* This is needed to prevent the "this interaction has failed" message from Discord to the user. */
+         event.reply(dpp::ir_channel_message_with_source, "You clicked " + event.custom_id + " and chose: " + event.values[0]);
+      }
    });
 
    /* Start bot */

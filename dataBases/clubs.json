@@ -1,18 +1,22 @@
 [
    {
-      "club" : "**ACM@UWB**",
+      "club" : "ACM@UWB",
       "link" : "https://discord.gg/p94BdasxXm"
+      "desc" : ""
    },
    {
-      "club" : "**Husky Game Dev**",
+      "club" : "Husky Game Dev",
       "link" : "https://discord.gg/qghnHGZ"
+      "desc" " "A club dedicated to the practice of game dev."
    },
    {
-      "club" : "**Husky Gaming Club**",
+      "club" : "Husky Gaming Club",
       "link" : "https://discord.gg/hgc"
+      "desc" : "The main HUB of gaming at UWB"
    },
       {
-      "club" : "**Bothell Beats**",
+      "club" : "Bothell Beats",
       "link" : "https://discord.gg/y6Yuybm2bK"
+      "desc" : ""
    }
 ]
