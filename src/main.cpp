@@ -1,3 +1,9 @@
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 #include <dpp/dpp.h>
 #include <dpp/nlohmann/json.hpp>
 #include <sstream>
@@ -126,6 +132,35 @@ int main(int argc, char const *argv[]) {
       if (command == "!campus") {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
+      }
+      
+      /* !test <key>*/
+      /* Sends a script of commands, calling itself for testing */
+      /* A key is required for the test to work */
+      if (command == "!test") {
+      	string key;
+      	ss >> key;
+      	string pass = "0GsdNb";
+      	
+      	if (key == pass) {
+	      	bot.message_create(dpp::message(event.msg.channel_id, "TESTING COMMANDS"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!ping"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!inspire"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!crowFact"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!songSuggest"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!campus\n"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "TESTING RESPONSES"));
+      	}
+      	else {
+      		bot.message_create(dpp::message(event.msg.channel_id, "Invalid key to run test"));
+      	}
+      	
       }
    });
 
