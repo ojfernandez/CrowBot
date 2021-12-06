@@ -7,6 +7,7 @@
 #include "helpMsg.h"
 #include "crowMsg.h"
 #include "songMsg.h"
+#include "clubMenu.h"
 #include "clubMsg.h"
 #include "campusMsg.h"
 
