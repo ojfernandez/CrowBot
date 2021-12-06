@@ -50,7 +50,7 @@ int main(int argc, char const *argv[]) {
         "../dataBases/comms.json",
         "../dataBases/crows.json",
 	"../dataBases/songs.json",
-        "../dataBases/clubs.jsonx"
+        "../dataBases/clubs.json"
       };
       
       /* Reading in .json files from dataBases folder */
@@ -120,6 +120,19 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, failed));
          }
       }
+
+      /* !clubs */
+      /* Requires clubs.json to be read */
+      if (command == "!clubs") {
+         if (dbFound[3]) {
+            dpp::message clubMenu(event.msg.channel_id, "Clubs @ UWB");
+            bot.message_create(clubMsg(database[3], clubMenu));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
+         }
+      }
+      
 
       /* !campus */
       /* Sends an embedded image of the UWB campus grounds */
