@@ -19,6 +19,6 @@ void clubMenu(const json& j, dpp::message& m) {
             dpp::component().set_type(dpp::cot_selectmenu).
             add_select_option(dpp::select_option(j[i]["club"], j[i]["link"], j[i]["desc"]))
          )
-      )
+      );
    }
 }

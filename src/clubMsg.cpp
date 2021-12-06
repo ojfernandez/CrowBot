@@ -1,6 +1,6 @@
-#include "clubMsg.h"
+#include <string>
 
-using namespace std;
+#include "clubMsg.h"
 
 string clubMsg(const dpp::select_click_t& e) {
 
