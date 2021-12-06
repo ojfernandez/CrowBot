@@ -129,7 +129,7 @@ int main(int argc, char const *argv[]) {
       /* Requires clubs.json to be read */
       if (command == "!clubs") {
          if (dbFound[3]) {
-            dpp::message clubList(event.msg.channel_id);
+            dpp::message clubList(event.msg.channel_id, "**Clubs @ UWB**");
 	    clubMenu(database[3], clubList);
             bot.message_create(clubList);
          }
