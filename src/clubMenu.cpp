@@ -15,7 +15,10 @@ void clubMenu(const json& j, dpp::message& m) {
       )
    );
 
+   cout << "Menu made" << endl;
+
    for (int i = 0; i < j.size(); i++) {
+      cout << "Option " << i << endl;
       m.add_component(
          dpp::component().add_component(
             dpp::component().set_type(dpp::cot_selectmenu).

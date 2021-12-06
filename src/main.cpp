@@ -99,7 +99,7 @@ int main(int argc, char const *argv[]) {
       }
 
       /* !crowFact */
-      /* Sends a random crow fact */
+      /* Sends a random embedded crow fact */
       /* Requires crows.json to be read */
       if (command == "!crowFact") {
          if (dbFound[1]) {
@@ -127,6 +127,7 @@ int main(int argc, char const *argv[]) {
       }
 
       /* !clubs */
+      /* Sends a menu of clubs at UWB */
       /* Requires clubs.json to be read */
       if (command == "!clubs") {
          if (dbFound[3]) {
