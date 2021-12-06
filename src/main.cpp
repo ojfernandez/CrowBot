@@ -151,7 +151,7 @@ int main(int argc, char const *argv[]) {
    /* Use on_select_click for when a suer clicks your select menu */
    bot.on_select_click([&bot](const dpp::select_click_t& event) {
       if (event.custom_id == "ClubMenu") {
-         event.reply(dpp::ir_channel_message_with_source, clubMsg);
+         event.reply(dpp::ir_channel_message_with_source, clubMsg(event));
       }
       else {
          /* Select clicks are still interactions and must be replied to in some form */
