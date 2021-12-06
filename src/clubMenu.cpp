@@ -15,8 +15,6 @@ void clubMenu(const json& j, dpp::message& m) {
       )
    );
 
-   cout << j.dump() << endl;
-
    for (int i = 0; i < j.size(); i++) {
       m.add_component(
          dpp::component().add_component(

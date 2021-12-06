@@ -52,9 +52,9 @@ int main(int argc, char const *argv[]) {
       
       /* Array of strings of the path to databases */
       string dbPath[DB] = {
-        "../dataBases/comms.json",
-        "../dataBases/crows.json",
-	"../dataBases/songs.json",
+        "../dataBases/comms.jsonx",
+        "../dataBases/crows.jsonx",
+	"../dataBases/songs.jsonx",
         "../dataBases/clubs.json"
       };
       
