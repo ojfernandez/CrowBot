@@ -52,9 +52,9 @@ int main(int argc, char const *argv[]) {
       
       /* Array of strings of the path to databases */
       string dbPath[DB] = {
-        "../dataBases/comms.jsonx",
-        "../dataBases/crows.jsonx",
-	"../dataBases/songs.jsonx",
+        "../dataBases/comms.json",
+        "../dataBases/crows.json",
+	     "../dataBases/songs.json",
         "../dataBases/clubs.json"
       };
       
@@ -139,7 +139,6 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, failed));
          }
       }
-      
 
       /* !campus */
       /* Sends an embedded image of the UWB campus grounds */

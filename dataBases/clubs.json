@@ -14,9 +14,19 @@
       "link" : "https://discord.gg/hgc",
       "desc" : "The main HUB of gaming at UWB"
    },
-      {
+   {
       "club" : "Bothell Beats",
       "link" : "https://discord.gg/y6Yuybm2bK",
+      "desc" : "The Music Prod. Club @ UW Bothell"
+   },
+   {
+      "club" : "CS @ UWB",
+      "link" : "https://discord.gg/feaXtKUfQj",
+      "desc" : "Computer Science @ UW Bothell"
+   },
+   {
+      "club" : "UW Discord Directory",
+      "link" : "https://discord.gg/HYQhXXJyny",
       "desc" : ""
    }
 ]
