@@ -1,5 +1,7 @@
 #include "clubMenu.h"
 
+#include <iostream>
+
 using json = nlohmann::json;
 using namespace std;
 
@@ -12,6 +14,8 @@ void clubMenu(const json& j, dpp::message& m) {
          set_id("clubMenu")
       )
    );
+
+   cout << j.dump() << endl;
 
    for (int i = 0; i < j.size(); i++) {
       m.add_component(

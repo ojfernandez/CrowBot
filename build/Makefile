@@ -150,6 +150,33 @@ src/campusMsg.cpp.s:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.s
 .PHONY : src/campusMsg.cpp.s
 
+src/clubMenu.o: src/clubMenu.cpp.o
+
+.PHONY : src/clubMenu.o
+
+# target to build an object file
+src/clubMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.o
+.PHONY : src/clubMenu.cpp.o
+
+src/clubMenu.i: src/clubMenu.cpp.i
+
+.PHONY : src/clubMenu.i
+
+# target to preprocess a source file
+src/clubMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.i
+.PHONY : src/clubMenu.cpp.i
+
+src/clubMenu.s: src/clubMenu.cpp.s
+
+.PHONY : src/clubMenu.s
+
+# target to generate assembly for a file
+src/clubMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.s
+.PHONY : src/clubMenu.cpp.s
+
 src/clubMsg.o: src/clubMsg.cpp.o
 
 .PHONY : src/clubMsg.o
@@ -324,6 +351,9 @@ help:
 	@echo "... src/campusMsg.o"
 	@echo "... src/campusMsg.i"
 	@echo "... src/campusMsg.s"
+	@echo "... src/clubMenu.o"
+	@echo "... src/clubMenu.i"
+	@echo "... src/clubMenu.s"
 	@echo "... src/clubMsg.o"
 	@echo "... src/clubMsg.i"
 	@echo "... src/clubMsg.s"
