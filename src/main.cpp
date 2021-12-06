@@ -7,6 +7,8 @@
 #include "helpMsg.h"
 #include "crowMsg.h"
 #include "songMsg.h"
+#include "clubMenu.h"
+#include "clubMsg.h"
 #include "campusMsg.h"
 
 using json = nlohmann::json;
@@ -41,6 +43,9 @@ int main(int argc, char const *argv[]) {
       if (event.severity >= dpp::ll_debug) {
          cout << dpp::utility::current_date_time() << " [" << dpp::utility::loglevel(event.severity) << "] " << event.message << "\n";
       }
+      if (event.severity > dpp::ll_trace) {
+         std::cout << event.message << "\n";
+      }
    });
    
    bot.on_ready([&bot](const dpp::ready_t &event) {
@@ -49,8 +54,8 @@ int main(int argc, char const *argv[]) {
       string dbPath[DB] = {
         "../dataBases/comms.json",
         "../dataBases/crows.json",
-	"../dataBases/songs.json",
-        "../dataBases/clubs.jsonx"
+	     "../dataBases/songs.json",
+        "../dataBases/clubs.json"
       };
       
       /* Reading in .json files from dataBases folder */
@@ -60,7 +65,7 @@ int main(int argc, char const *argv[]) {
    });
 
    /* Use the on_message_create event to look for commands */
-   bot.on_message_create([&bot](const dpp::message_create_t &event) {
+   bot.on_message_create([&bot](const dpp::message_create_t& event) {
 
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
@@ -94,7 +99,7 @@ int main(int argc, char const *argv[]) {
       }
 
       /* !crowFact */
-      /* Sends a random crow fact */
+      /* Sends a random embedded crow fact */
       /* Requires crows.json to be read */
       if (command == "!crowFact") {
          if (dbFound[1]) {
@@ -121,11 +126,37 @@ int main(int argc, char const *argv[]) {
          }
       }
 
+      /* !clubs */
+      /* Sends a menu of clubs at UWB */
+      /* Requires clubs.json to be read */
+      if (command == "!clubs") {
+         if (dbFound[3]) {
+            dpp::message clubList(event.msg.channel_id, "**Clubs @ UWB**");
+	    clubMenu(database[3], clubList);
+            bot.message_create(clubList);
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed));
+         }
+      }
+
       /* !campus */
       /* Sends an embedded image of the UWB campus grounds */
       if (command == "!campus") {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
+      }
+   });
+
+   /* Use on_select_click for when a suer clicks your select menu */
+   bot.on_select_click([&bot](const dpp::select_click_t& event) {
+      if (event.custom_id == "ClubMenu") {
+         event.reply(dpp::ir_channel_message_with_source, clubMsg(event));
+      }
+      else {
+         /* Select clicks are still interactions and must be replied to in some form */
+         /* This is needed to prevent the "this interaction has failed" message from Discord to the user. */
+         event.reply(dpp::ir_channel_message_with_source, "You clicked " + event.custom_id + " and chose: " + event.values[0]);
       }
    });
 
