@@ -74,12 +74,12 @@ clean: CMakeFiles/UWCrowBot.dir/clean
 CMakeFiles/UWCrowBot.dir/all:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/depend
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target UWCrowBot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target UWCrowBot"
 .PHONY : CMakeFiles/UWCrowBot.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/UWCrowBot.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /root/CrowBot/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /root/CrowBot/build/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/UWCrowBot.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/CrowBot/build/CMakeFiles 0
 .PHONY : CMakeFiles/UWCrowBot.dir/rule

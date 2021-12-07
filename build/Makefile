@@ -231,6 +231,33 @@ src/crowMsg.cpp.s:
 	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.s
 .PHONY : src/crowMsg.cpp.s
 
+src/getBan.o: src/getBan.cpp.o
+
+.PHONY : src/getBan.o
+
+# target to build an object file
+src/getBan.cpp.o:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o
+.PHONY : src/getBan.cpp.o
+
+src/getBan.i: src/getBan.cpp.i
+
+.PHONY : src/getBan.i
+
+# target to preprocess a source file
+src/getBan.cpp.i:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/getBan.cpp.i
+.PHONY : src/getBan.cpp.i
+
+src/getBan.s: src/getBan.cpp.s
+
+.PHONY : src/getBan.s
+
+# target to generate assembly for a file
+src/getBan.cpp.s:
+	$(MAKE) -f CMakeFiles/UWCrowBot.dir/build.make CMakeFiles/UWCrowBot.dir/src/getBan.cpp.s
+.PHONY : src/getBan.cpp.s
+
 src/helpMsg.o: src/helpMsg.cpp.o
 
 .PHONY : src/helpMsg.o
@@ -360,6 +387,9 @@ help:
 	@echo "... src/crowMsg.o"
 	@echo "... src/crowMsg.i"
 	@echo "... src/crowMsg.s"
+	@echo "... src/getBan.o"
+	@echo "... src/getBan.i"
+	@echo "... src/getBan.s"
 	@echo "... src/helpMsg.o"
 	@echo "... src/helpMsg.i"
 	@echo "... src/helpMsg.s"

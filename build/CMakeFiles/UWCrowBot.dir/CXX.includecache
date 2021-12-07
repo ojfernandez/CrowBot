@@ -28,6 +28,14 @@ dpp/dpp.h
 dpp/nlohmann/json.hpp
 -
 
+/root/CrowBot/src/getBan.cpp
+getBan.h
+/root/CrowBot/src/getBan.h
+
+/root/CrowBot/src/getBan.h
+dpp/dpp.h
+-
+
 /root/CrowBot/src/helpMsg.h
 string
 -
@@ -57,6 +65,8 @@ clubMsg.h
 /root/CrowBot/src/clubMsg.h
 campusMsg.h
 /root/CrowBot/src/campusMsg.h
+getBan.h
+/root/CrowBot/src/getBan.h
 
 /root/CrowBot/src/settingDB.h
 string

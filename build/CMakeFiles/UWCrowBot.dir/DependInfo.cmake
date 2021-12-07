@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/root/CrowBot/src/clubMenu.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.o"
   "/root/CrowBot/src/clubMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/clubMsg.cpp.o"
   "/root/CrowBot/src/crowMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o"
+  "/root/CrowBot/src/getBan.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o"
   "/root/CrowBot/src/helpMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
   "/root/CrowBot/src/main.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
   "/root/CrowBot/src/settingDB.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o"

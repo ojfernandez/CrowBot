@@ -109,9 +109,22 @@ CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/CrowBot/src/crowMsg.cpp -o CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.s
 
+CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o: CMakeFiles/UWCrowBot.dir/flags.make
+CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o: ../src/getBan.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o -c /root/CrowBot/src/getBan.cpp
+
+CMakeFiles/UWCrowBot.dir/src/getBan.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/UWCrowBot.dir/src/getBan.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/CrowBot/src/getBan.cpp > CMakeFiles/UWCrowBot.dir/src/getBan.cpp.i
+
+CMakeFiles/UWCrowBot.dir/src/getBan.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/UWCrowBot.dir/src/getBan.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/CrowBot/src/getBan.cpp -o CMakeFiles/UWCrowBot.dir/src/getBan.cpp.s
+
 CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o: CMakeFiles/UWCrowBot.dir/flags.make
 CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o: ../src/helpMsg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o -c /root/CrowBot/src/helpMsg.cpp
 
 CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.i: cmake_force
@@ -124,7 +137,7 @@ CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.s: cmake_force
 
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o: CMakeFiles/UWCrowBot.dir/flags.make
 CMakeFiles/UWCrowBot.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UWCrowBot.dir/src/main.cpp.o -c /root/CrowBot/src/main.cpp
 
 CMakeFiles/UWCrowBot.dir/src/main.cpp.i: cmake_force
@@ -137,7 +150,7 @@ CMakeFiles/UWCrowBot.dir/src/main.cpp.s: cmake_force
 
 CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o: CMakeFiles/UWCrowBot.dir/flags.make
 CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o: ../src/settingDB.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o -c /root/CrowBot/src/settingDB.cpp
 
 CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.i: cmake_force
@@ -150,7 +163,7 @@ CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.s: cmake_force
 
 CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o: CMakeFiles/UWCrowBot.dir/flags.make
 CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o: ../src/songMsg.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.o -c /root/CrowBot/src/songMsg.cpp
 
 CMakeFiles/UWCrowBot.dir/src/songMsg.cpp.i: cmake_force
@@ -167,6 +180,7 @@ UWCrowBot_OBJECTS = \
 "CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.o" \
 "CMakeFiles/UWCrowBot.dir/src/clubMsg.cpp.o" \
 "CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o" \
+"CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o" \
 "CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o" \
 "CMakeFiles/UWCrowBot.dir/src/main.cpp.o" \
 "CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o" \
@@ -179,6 +193,7 @@ UWCrowBot: CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/clubMsg.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o
+UWCrowBot: CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/main.cpp.o
 UWCrowBot: CMakeFiles/UWCrowBot.dir/src/settingDB.cpp.o
@@ -188,7 +203,7 @@ UWCrowBot: /usr/lib/x86_64-linux-gnu/libcrypto.so
 UWCrowBot: /usr/lib/x86_64-linux-gnu/libssl.so
 UWCrowBot: /usr/lib/libdpp.so
 UWCrowBot: CMakeFiles/UWCrowBot.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable UWCrowBot"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/root/CrowBot/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable UWCrowBot"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/UWCrowBot.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

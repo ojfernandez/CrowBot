@@ -3,6 +3,6 @@
 
 #include <dpp/dpp.h>
 
-dpp::ban getBan(dpp::message&);
+dpp::ban getBan (const dpp::message_create_t);
 
 #endif

@@ -168,7 +168,7 @@ int main(int argc, char const *argv[]) {
             dpp::snowflake gID;
             dpp::snowflake uID;
             
-            getBan(event.msg.channel_id, gID, uID);
+            //getBan(event.msg.channel_id, gID, uID);
             
             cout << "gID: " << to_string(gID) << endl;
             cout << "uID: " << to_string(uID) << endl;

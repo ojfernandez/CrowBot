@@ -13,6 +13,9 @@ CMakeFiles/UWCrowBot.dir/src/clubMsg.cpp.o
 CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o
  /root/CrowBot/src/crowMsg.cpp
  /root/CrowBot/src/crowMsg.h
+CMakeFiles/UWCrowBot.dir/src/getBan.cpp.o
+ /root/CrowBot/src/getBan.cpp
+ /root/CrowBot/src/getBan.h
 CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o
  /root/CrowBot/src/helpMsg.cpp
  /root/CrowBot/src/helpMsg.h
@@ -21,6 +24,7 @@ CMakeFiles/UWCrowBot.dir/src/main.cpp.o
  /root/CrowBot/src/clubMenu.h
  /root/CrowBot/src/clubMsg.h
  /root/CrowBot/src/crowMsg.h
+ /root/CrowBot/src/getBan.h
  /root/CrowBot/src/helpMsg.h
  /root/CrowBot/src/main.cpp
  /root/CrowBot/src/settingDB.h
