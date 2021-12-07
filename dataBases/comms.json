@@ -15,6 +15,10 @@
 		"comm" : "**!songSuggest**",
 		"desc" : "Returns a song suggestion for studying"
 	},
+		{
+		"comm" : "**!clubs**",
+		"desc" : "Returns a list of clubs at UWB"
+	},
 	{
 		"comm" : "**!campus**",
 		"desc" : "Returns an embedded live image of the UWB campus"
