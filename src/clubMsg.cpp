@@ -1,6 +1,6 @@
-#include <string>
-
 #include "clubMsg.h"
+
+#include <string>
 
 using namespace std;
 

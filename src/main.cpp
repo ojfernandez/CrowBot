@@ -10,6 +10,7 @@
 #include "clubMenu.h"
 #include "clubMsg.h"
 #include "campusMsg.h"
+#include "getBan.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -82,8 +83,8 @@ int main(int argc, char const *argv[]) {
       string failed = "Cannot execute " + command + ". ";
       string reason[FAIL] = {
          "Database cannot be opened.",
-	 "Command needs an extra parameter.",
-	 "Do not have access to this command."
+	      "Command needs an extra parameter.",
+	      "Do not have access to this command."
       };
 
       /* !help */
@@ -163,19 +164,20 @@ int main(int argc, char const *argv[]) {
       /* Bans the target (mentioned user) */
       if (command == ".ban") {
          // Check if user can actually ban
-	 if (!event.msg.mentions.empty()) {
-	 dpp::snowflake gID = event.msg.mentions[0].second.guild_id;
-	 dpp::snowflake uID = event.msg.mentions[0].first.id;
-
-         cout << "gID: " << to_string(gID) << endl;
-	 cout << "uID: " << to_string(uID) << endl;
-	 cout << "Intents: " << intents << endl << endl;
-         bot.guild_ban_add(gID, uID, intents, "Ban hammer has spoken!");
-	 }
-	 else {
-	    bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
-	 }
-         
+	      if (!event.msg.mentions.empty()) {
+            dpp::snowflake gID;
+            dpp::snowflake uID;
+            
+            getUser(event.msg.channel_id, gID, uID);
+            
+            cout << "gID: " << to_string(gID) << endl;
+            cout << "uID: " << to_string(uID) << endl;
+            cout << "Intents: " << intents << endl << endl;
+            bot.guild_ban_add(getBan(event));
+         }
+         else {
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
+         }
       }
    });
 
