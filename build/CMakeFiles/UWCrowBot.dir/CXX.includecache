@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/root/CrowBot/src/crowMsg.cpp
+/root/CrowBot/src/clubMsg.cpp
 string
 -
-crowMsg.h
-/root/CrowBot/src/crowMsg.h
+clubMsg.h
+/root/CrowBot/src/clubMsg.h
 
-/root/CrowBot/src/crowMsg.h
-dpp/dpp.h
+/root/CrowBot/src/clubMsg.h
+string
 -
-dpp/nlohmann/json.hpp
+dpp/dpp.h
 -
 
