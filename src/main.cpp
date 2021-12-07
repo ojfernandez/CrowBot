@@ -14,7 +14,9 @@
 using json = nlohmann::json;
 using namespace std;
 
-const int DB = 4; // Global constant for # of databases (.json)
+/* Global constants */
+const int DB = 4; // # of databases (.json)
+const int FAIL = 3; // # of failed messages
 
 /* Setup databases */
 json database[DB]; // Array of databases
@@ -54,7 +56,7 @@ int main(int argc, char const *argv[]) {
       string dbPath[DB] = {
         "../dataBases/comms.json",
         "../dataBases/crows.json",
-	     "../dataBases/songs.json",
+        "../dataBases/songs.json",
         "../dataBases/clubs.json"
       };
       
@@ -67,6 +69,9 @@ int main(int argc, char const *argv[]) {
    /* Use the on_message_create event to look for commands */
    bot.on_message_create([&bot](const dpp::message_create_t& event) {
 
+      /* Allows bot to perform admin interactions */
+      uint32_t intents = dpp::i_all_intents;
+
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
       string command;
@@ -74,7 +79,12 @@ int main(int argc, char const *argv[]) {
       ss >> command; // First field, for commands
       ss >> param; // Second field, for anything extra
 
-      string failed = "Cannot execute " + command + ". Database failed to open.";
+      string failed = "Cannot execute " + command + ". ";
+      string reason[FAIL] = {
+         "Database cannot be opened.",
+	 "Command needs an extra parameter.",
+	 "Do not have access to this command."
+      };
 
       /* !help */
       /* A command which shows the different avaiable commands for the bot */
@@ -84,7 +94,7 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -112,7 +122,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -124,7 +134,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -138,7 +148,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(clubList);
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -149,10 +159,22 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
       
-      /* */
-      if (command == "!ban") {
+      /* .ban @<target> - Admin command */
+      /* Bans the target (mentioned user) */
+      if (command == ".ban") {
          // Check if user can actually ban
-         bot.guild_ban_add_t(param);
+	 if (!event.msg.mentions.empty()) {
+	 dpp::snowflake gID = event.msg.mentions[0].second.guild_id;
+	 dpp::snowflake uID = event.msg.mentions[0].first.id;
+
+         cout << "gID: " << to_string(gID) << endl;
+	 cout << "uID: " << to_string(uID) << endl;
+	 cout << "Intents: " << intents << endl << endl;
+         bot.guild_ban_add(gID, uID, intents, "Ban hammer has spoken!");
+	 }
+	 else {
+	    bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
+	 }
          
       }
    });
