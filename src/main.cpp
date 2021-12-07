@@ -70,7 +70,9 @@ int main(int argc, char const *argv[]) {
       /* Reads messages from Discord */
       stringstream ss(event.msg.content);
       string command;
-      ss >> command;
+      string param;
+      ss >> command; // First field, for commands
+      ss >> param; // Second field, for anything extra
 
       string failed = "Cannot execute " + command + ". Database failed to open.";
 
@@ -145,6 +147,13 @@ int main(int argc, char const *argv[]) {
       if (command == "!campus") {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
+      }
+      
+      /* */
+      if (command == "!ban") {
+         // Check if user can actually ban
+         bot.guild_ban_add_t(param);
+         
       }
    });
 
