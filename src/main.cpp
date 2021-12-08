@@ -159,23 +159,23 @@ int main(int argc, char const *argv[]) {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
-      
+
       /* .ban @<target> - Admin command */
       /* Bans the target (mentioned user) */
       if (command == ".ban") {
          // Check if user can actually ban
-	      if (!event.msg.mentions.empty()) {
+         if (!event.msg.mentions.empty()) {
             dpp::snowflake gID;
             dpp::snowflake uID;
             
-            //getBan(event.msg.channel_id, gID, uID);
+            getBan(event.msg.channel_id, gID, uID);
             
             cout << "gID: " << to_string(gID) << endl;
             cout << "uID: " << to_string(uID) << endl;
             cout << "Intents: " << intents << endl << endl;
             bot.guild_ban_add(getBan(event));
-         }
-         else {
+        }
+        else {
             bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
          }
       }

@@ -28,10 +28,6 @@ dpp/dpp.h
 dpp/nlohmann/json.hpp
 -
 
-/root/CrowBot/src/getBan.cpp
-getBan.h
-/root/CrowBot/src/getBan.h
-
 /root/CrowBot/src/getBan.h
 dpp/dpp.h
 -
