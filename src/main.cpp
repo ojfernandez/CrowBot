@@ -1,7 +1,15 @@
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
+
 #include <dpp/dpp.h>
 #include <dpp/nlohmann/json.hpp>
 #include <sstream>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "settingDB.h"
 #include "helpMsg.h"
@@ -10,6 +18,7 @@
 #include "clubMenu.h"
 #include "clubMsg.h"
 #include "campusMsg.h"
+#include "debug.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -146,6 +155,35 @@ int main(int argc, char const *argv[]) {
          /* reply with the created embed */
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
+      
+      /* !debug <key>*/
+      /* Sends a script of commands, calling itself for testing */
+      /* A key is required for the test to work */
+      if (command == "!debug") {
+      	string key;
+      	ss >> key;
+      	string pass = "0GsdNb";
+      	
+      	if (key == pass) {
+      		vector<string> commands;
+      		debug(commands);
+      		
+      		bot.message_create(dpp::message(event.msg.channel_id, "**TESTING COMMANDS**"));
+	      	sleep(1);
+	      	
+      		for (int i = 0; i < commands.size(); i++) {
+      			bot.message_create(dpp::message(event.msg.channel_id, commands[i]));
+      			sleep(1);
+      		}
+	      	
+	      	bot.message_create(dpp::message(event.msg.channel_id, "**TESTING RESPONSES**"));
+      	}
+      	else {
+      		bot.message_create(dpp::message(event.msg.channel_id, "Invalid key to run test"));
+      	}
+      	
+      }
+      sleep(2);
    });
 
    /* Use on_select_click for when a suer clicks your select menu */
