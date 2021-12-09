@@ -171,7 +171,7 @@ int main(int argc, char const *argv[]) {
       	string parameter;
       	ss >> parameter;
       	if (parameter == "") {
-      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1] + " Please specify a course. (e.g.\"!classInfo CSS360\""));
+      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1] + " Please specify a course. (e.g.\"!classInfo CSS360\"\)"));
 	}
       	else {
       		bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)).set_reference(event.msg.id));
