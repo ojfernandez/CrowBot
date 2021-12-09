@@ -8,12 +8,15 @@
 #include <dpp/nlohmann/json.hpp>
 #include <sstream>
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "settingDB.h"
 #include "helpMsg.h"
 #include "crowMsg.h"
 #include "songMsg.h"
 #include "campusMsg.h"
+#include "debug.h"
 
 using json = nlohmann::json;
 using namespace std;
@@ -134,36 +137,34 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
       
-      /* !test <key>*/
+      /* !debug <key>*/
       /* Sends a script of commands, calling itself for testing */
       /* A key is required for the test to work */
-      if (command == "!test") {
+      if (command == "!debug") {
       	string key;
       	ss >> key;
       	string pass = "0GsdNb";
       	
       	if (key == pass) {
-	      	bot.message_create(dpp::message(event.msg.channel_id, "TESTING COMMANDS"));
+      		vector<string> commands;
+      		debug(commands);
+      		
+      		bot.message_create(dpp::message(event.msg.channel_id, "**TESTING COMMANDS**"));
 	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!ping"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!inspire"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!crowFact"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!songSuggest"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!campus"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!clubs\n"));
-	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "TESTING RESPONSES"));
+	      	
+      		for (int i = 0; i < commands.size(); i++) {
+      			bot.message_create(dpp::message(event.msg.channel_id, commands[i]));
+      			sleep(1);
+      		}
+	      	
+	      	bot.message_create(dpp::message(event.msg.channel_id, "**TESTING RESPONSES**"));
       	}
       	else {
       		bot.message_create(dpp::message(event.msg.channel_id, "Invalid key to run test"));
       	}
       	
       }
+      sleep(2);
    });
 
    /* Start bot */
