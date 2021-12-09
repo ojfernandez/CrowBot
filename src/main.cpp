@@ -18,6 +18,7 @@
 #include "clubMenu.h"
 #include "clubMsg.h"
 #include "campusMsg.h"
+#include "classInfo.h"
 #include "debug.h"
 
 using json = nlohmann::json;
@@ -156,6 +157,14 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, campusMsg()).set_reference(event.msg.id));
       }
       
+      /* !classInfo */
+      /* Gets information regarding UW Course */
+      if (command == "!classInfo") {
+      	string parameter;
+      	ss >> parameter;
+      	bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)).set_reference(event.msg.id));
+      }
+     
       /* !debug <key>*/
       /* Sends a script of commands, calling itself for testing */
       /* A key is required for the test to work */
