@@ -2,12 +2,17 @@
 
 using namespace std;
 
-string classInfo(string courseID) {
-	cpr::Url url = cpr::Url{"https://myplan.uw.edu/course/#/courses/" + courseID};
-	//cpr::Response response = cpr::Get(url);
-	//string page_content = response.text;
+dpp::embed classInfo(string courseID) {
 	
-	//dpp::message courseinfo = dpp::message(event.msg.channel_id, page_content);
+	for (auto & c: courseID) c = toupper(c);
 	
-	return "pip";
+	dpp::embed courseInfo = dpp::embed().
+		set_color(0x4b2e83).
+      		set_title("Course Information for " + courseID).
+      		set_url("https://myplan.uw.edu/course/#/courses/" + courseID).
+      		set_author("University of Washington Bothell", "https://www.uwb.edu/", "https://www.uwb.edu/uwbothell/media/brand-assets/Logos/w-logo/Web-W-Logo-Purple.png").
+      		set_thumbnail("https://www.uwb.edu/uwbothell/media/brand-assets/Logos/stacked-w/stacked-encode-w-uw-bothell.png").
+      		set_timestamp(time(0));
+      			
+	return courseInfo;
 }
