@@ -134,7 +134,7 @@ int main(int argc, char const *argv[]) {
       if (command == "!classInfo") {
       	string parameter;
       	ss >> parameter;
-      	bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)));
+      	bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)).set_reference(event.msg.id));
       }
    });
 
