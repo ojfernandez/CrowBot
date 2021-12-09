@@ -172,6 +172,7 @@ int main(int argc, char const *argv[]) {
       	ss >> parameter;
       	if (parameter == "") {
       		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
+	}
       	else {
       		bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)).set_reference(event.msg.id));
 	}
