@@ -200,7 +200,7 @@ int main(int argc, char const *argv[]) {
 	      	bot.message_create(dpp::message(event.msg.channel_id, "**TESTING RESPONSES**"));
       	}
       	else {
-      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[2]));
+      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[2] + " Please specify a course. (e.g.\"!classInfo CSS360\""));
       	}
       	
       }
