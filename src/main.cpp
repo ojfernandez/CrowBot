@@ -24,7 +24,9 @@
 using json = nlohmann::json;
 using namespace std;
 
-const int DB = 4; // Global constant for # of databases (.json)
+/* Global constants */
+const int DB = 4; // # of databases (.json)
+const int FAIL = 3; // # of failed messages
 
 /* Setup databases */
 json database[DB]; // Array of databases
@@ -82,7 +84,13 @@ int main(int argc, char const *argv[]) {
       string command;
       ss >> command;
 
-      string failed = "Cannot execute " + command + ". Database failed to open.";
+      string failed = "Cannot execute " + command + ". ";
+
+      string reason[FAIL] = {
+         "Database cannot be opened.",
+	 "Command needs an extra parameter.",
+	 "Do not have access to this command."
+      };
 
       /* !help */
       /* A command which shows the different avaiable commands for the bot */
@@ -92,7 +100,7 @@ int main(int argc, char const *argv[]) {
          bot.message_create(dpp::message(event.msg.channel_id, helpMsg(database[0])));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -120,7 +128,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, crowEmbed).set_reference(event.msg.id));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -132,7 +140,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(dpp::message(event.msg.channel_id, songMsg(database[2], songRand, songLast)));
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -146,7 +154,7 @@ int main(int argc, char const *argv[]) {
             bot.message_create(clubList);
          }
          else {
-            bot.message_create(dpp::message(event.msg.channel_id, failed));
+            bot.message_create(dpp::message(event.msg.channel_id, failed + reason[0]));
          }
       }
 
@@ -163,17 +171,16 @@ int main(int argc, char const *argv[]) {
       	string parameter;
       	ss >> parameter;
       	if (parameter == "") {
-      		bot.message_create(dpp::message(event.msg.channel_id, "Please specify a course. (e.g.\"!classInfo CSS360\""));
-      	}
+      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[1]));
       	else {
       		bot.message_create(dpp::message(event.msg.channel_id, classInfo(parameter)).set_reference(event.msg.id));
 	}
       }
      
-      /* !debug <key>*/
+      /* .debug <key>*/
       /* Sends a script of commands, calling itself for testing */
       /* A key is required for the test to work */
-      if (command == "!debug") {
+      if (command == ".debug") {
       	string key;
       	ss >> key;
       	string pass = "0GsdNb";
@@ -193,7 +200,7 @@ int main(int argc, char const *argv[]) {
 	      	bot.message_create(dpp::message(event.msg.channel_id, "**TESTING RESPONSES**"));
       	}
       	else {
-      		bot.message_create(dpp::message(event.msg.channel_id, "Invalid key to run test"));
+      		bot.message_create(dpp::message(event.msg.channel_id, failed + reason[2]));
       	}
       	
       }
