@@ -16,12 +16,12 @@ nlohmann::json settingDB(const string path, bool& open) {
    /* Check if stream is open, parses into json if open */
    if (db.is_open()) {
       open = true;
-      cout << " opened." << endl;
+      cout << "opened." << endl;
       db >> j;
    }
    else {
       open = false;
-      cout << " failed." << endl;
+      cout << "failed." << endl;
    }
    return j;
 }

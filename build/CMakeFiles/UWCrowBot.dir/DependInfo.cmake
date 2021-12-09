@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/root/CrowBot/src/campusMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/campusMsg.cpp.o"
+  "/root/CrowBot/src/clubMenu.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/clubMenu.cpp.o"
+  "/root/CrowBot/src/clubMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/clubMsg.cpp.o"
   "/root/CrowBot/src/crowMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/crowMsg.cpp.o"
   "/root/CrowBot/src/helpMsg.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/helpMsg.cpp.o"
   "/root/CrowBot/src/main.cpp" "/root/CrowBot/build/CMakeFiles/UWCrowBot.dir/src/main.cpp.o"
