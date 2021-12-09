@@ -153,7 +153,9 @@ int main(int argc, char const *argv[]) {
 	      	sleep(1);
 	      	bot.message_create(dpp::message(event.msg.channel_id, "!songSuggest"));
 	      	sleep(1);
-	      	bot.message_create(dpp::message(event.msg.channel_id, "!campus\n"));
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!campus"));
+	      	sleep(1);
+	      	bot.message_create(dpp::message(event.msg.channel_id, "!clubs\n"));
 	      	sleep(1);
 	      	bot.message_create(dpp::message(event.msg.channel_id, "TESTING RESPONSES"));
       	}
