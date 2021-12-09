@@ -15,12 +15,16 @@
 		"comm" : "**!songSuggest**",
 		"desc" : "Returns a song suggestion for studying"
 	},
-		{
+	{
+		"comm" : "**!classInfo** *<param>*",
+		"desc" : "Returns a link for the class stated in *param*"
+	},
+	{
 		"comm" : "**!clubs**",
 		"desc" : "Returns a list of clubs at UWB"
 	},
 	{
 		"comm" : "**!campus**",
-		"desc" : "Returns an embedded live image of the UWB campus"
+		"desc" : "Returns a live image of the UWB campus"
 	}
 ]
