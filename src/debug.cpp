@@ -14,6 +14,7 @@ void debug(vector<string>& commands) {
 	commands.push_back("!clubs");
 	commands.push_back("!classInfo css360");
 	commands.push_back("!classInfo");
+	commands.push_back("!campus");
 	
 	commands.push_back("---------");
 	
